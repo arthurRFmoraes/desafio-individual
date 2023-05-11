@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'beatles-font';
+    src: url(./fonts/beatles-font.TTF);
+    font-weight: normal;
+    font-style: normal;
+
+}
+body{
+    font-family: 'beatles-font';
+    margin: 0;
+}
+.header{
+    margin: 0;
+    display: flex;
+    color: white;
+    background-color: black;
+    width: 100%;
+    height: 60px;
+    padding: 20px;
+}
+
+.header ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+
+}
+.header li{
+    padding: 10px;
+    border: 1px solid red;
+}
+.header a{
+    color: white;
+    text-decoration: none;
+}
+.container{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.header img{
+    height: 60px;
+}
