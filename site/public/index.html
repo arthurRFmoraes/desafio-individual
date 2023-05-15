@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="./js/funcoes.js"></script>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link type="image/png" sizes="16x16" rel="icon" href="./assets/imgs/favicon-branco.png">
+    <title>The Beatles blog</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="container">
+            <a href="./index.html">
+                <img src="./assets/imgs/beatles-logo.jpg" alt="" class="logo">
+            </a>
+            <ul class="menu">
+                <a href="./" id="discografia">
+                    <li>Discografia</li>
+                </a>
+                <a href="./cadastro.html" id="criar-conta">
+                    <li>Criar uma conta</li>
+                </a>
+                <a href="./login.html" id="entrar">
+                    <li>Entrar</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+
+    <div class="banner">
+        <div class="container">
+            <a href="">
+                <img src="./assets/imgs/beatles-fundo2.jpeg" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="content-box">
+        <h1>Veja: 10 curiosidades sobre os Beatles</h1>
+    </div>
+
+
+    <div class="footer">
+        <div class="container">
+            <h4>Feito por Arthur Moraes 1CCO SPTECH &copy</h4>
+            <h5><a href="">dados sobre o site</a></h5>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function cadastrar() {
+        aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = nome_input.value;
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+        var confirmacaoSenhaVar = confirmacao_senha_input.value;
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
