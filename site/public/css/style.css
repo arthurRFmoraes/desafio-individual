@@ -5,6 +5,7 @@ body {
 }
 a{
   text-decoration: none;
+  color: #000000;
 }
 .container {
   width: 90%;
@@ -52,15 +53,12 @@ a{
 /* banner */
 
 .banner {
-  /* width: fit-content; */
-  border: 1px solid;
   width: 100%;
-  margin: 10px;
-  /* color: white; */
+  margin: auto;
+  height: 300px;
+  background-image: url(../assets/imgs/beatles-header-sgt-pepper-2.jpg);
+  background-size:cover;
   
-  /* background-image: url("../assets/imgs/background-fundo-branco-2.jpg");
-  background-size: cover; */
-  /* border: 1px solid blue; */
 }
 
 .banner .container {
@@ -72,9 +70,30 @@ a{
 .banner a{
   color: #000000;
 }
+/* content box */
+.content-box{
+  border: 1px solid red;
+  /* width: 30%; */
+}
 
+.container{
+  border: 1px solid rebeccapurple;
+}
 
-
+.content-box .container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.content-box img{
+  width: 100px;
+}
+.content{
+  border: 1px solid olivedrab;
+  width: 40%;
+  margin: 30px;
+  padding: 20px;
+}
 
 /* FOOTER */
 
@@ -87,7 +106,7 @@ a{
 }
 
 .footer .container {
-  justify-content: center;
+  justify-content:space-between;
   text-align: center;
 }
 
@@ -101,7 +120,7 @@ button{
 
 .cadastro{
   display: flex;
-  width: 30%;
+  width: 15%;
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -109,22 +128,61 @@ button{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid red;
+
 }
+
+
 .formulario{
+  border: 2px solid;
+  width: 100%;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  padding: 60px;
+  background-color: white;
 
 }
-.cadastro span{
+.formulario input{
+  background-color: #f5f5f5;
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+
+.formulario button{
+  padding: 8px;
+  border: 1px solid ;
+  border-radius: 4px;
+}
+.formulario button:hover{
+  color: red;
+}
+#titulo-formulario{
   font-size: 36px;
 }
 .formulario span{
   font-size: 16px;
+  display: block;
 }
 .campo{
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
+.sublista {
+  display: none;
+}
+.show-hide-button{
+  border: none;
+  background:none;
+}
+
+/* .disc-list{
+  border: 1px solid gold;
+  display: flex;
+}
+.disc-list li{
+  border: 1px solid gold;
+  display: flex;
+} */

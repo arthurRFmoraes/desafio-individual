@@ -6,6 +6,8 @@
 comandos para mysql - banco local - ambiente de desenvolvimento
 */
 
+SELECT * FROM mysql.user;
+
 CREATE DATABASE thebeatles;
 
 USE thebeatles;
@@ -16,8 +18,8 @@ CREATE TABLE usuario (
 	email VARCHAR(50),
 	senha VARCHAR(50)
 );
-
-CREATE TABLE comentario (
+select * from usuario;
+CREATE TABLE aviso(
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	titulo VARCHAR(100),
 	descricao VARCHAR(350),
