@@ -79,6 +79,7 @@
             // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
             // finalizarAguardar();
+            console.log('Preencha todos os campos!!')
             return false;
         }
         // else {
@@ -115,6 +116,8 @@
                 // finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
+                console.log("Houve um erro ao tentar realizar o cadastro!");
+
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);

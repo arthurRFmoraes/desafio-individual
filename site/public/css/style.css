@@ -40,6 +40,7 @@ a{
 }
 .menu-item{
   padding: 0 10px;
+  color: #fff;
 }
 .menu :hover{
   text-decoration: underline;
@@ -198,13 +199,14 @@ button{
 /* */  border: 1px solid;
   display: flex;
 }
-.table-discos span{
-/* */  border: 1px solid;
-}
+
 .table-discos h2{
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
 }
+  .table-discos span{
+    border: 1px solid;
+    }
 .disc-list{
   width: 30%;
   font-size: 15px;
@@ -213,7 +215,8 @@ button{
   padding: 5px;
 }
 .texto{
-  padding: 10px 100px;
+  padding: 10px 80px;
+  width: 100%;
 }
 /* .disc-list{
   border: 1px solid gold;
@@ -223,3 +226,30 @@ button{
   border: 1px solid gold;
   display: flex;
 } */
+.avisos{
+  display: flex;
+  border: 1px solid turquoise;
+  flex-direction: column;
+}
+.publicacao{
+  padding: 10px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+}
+.publicacao-nome {
+  border: 2px solid red !important;
+  padding: 10px;
+}
+.publicacao-titulo{
+  border: 2px solid green !important;
+}
+.publicacao-descricao{
+  border: 2px solid blue;
+}
+.div-buttons{
+  border: 2px solid orangered;
+}
+.publicacao-btn-editar{
+  border: 2px solid purple;
+}

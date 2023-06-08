@@ -42,10 +42,6 @@
             <div class="formulario">
             <span id="titulo-formulario">Login</span>
             <div class="campo">
-                <span>Nome:</span>
-                <input id="nome_input" type="text" placeholder="Seu nome">
-            </div>
-            <div class="campo">
                 <span>E-mail:</span>
                 <input id="email_input" type="text" placeholder="email@email.com">
             </div>
@@ -115,7 +111,7 @@
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "./index.html";
+                        window.location = "./login/blog.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
