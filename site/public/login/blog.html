@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="../js/funcoes.js"></script>
+
+        <link rel="stylesheet" href="../css/style.css">
+        <link type="image/png" sizes="16x16" rel="icon" href="../assets/imgs/favicon-branco.png">
+        <title>The Beatles blog</title>
+</head>
+
+<body>
+
+        <div class="header">
+                <div class="container">
+                        <a href="../index.html">
+                                <img src="../assets/imgs/beatles-logo.jpg" alt="" class="logo">
+                        </a>
+                        <ul class="menu">
+
+                                <!-- <a href="../cadastro.html" id="criar-conta" class="menu-item">
+                                        <li>Criar uma conta</li>
+                                </a> -->
+                                <a href="../blog.html" id="blog" class="menu-item">
+                                        <li>Blog</li>
+                                </a>
+                                <a href="../login.html" id="entrar" class="menu-item">
+                                        <li>Sair</li>
+                                </a>
+                                
+                        </ul>
+                </div>
+        </div>
+        <div class="banner">
+                <!-- banner com a imagem dos beatles -->
+        </div>
+        <div class="table-discos">
+                <span class="disc-list">
+                        <ol>
+                                <h2>Álbuns de estúdio</h2>
+                                <li>
+                                        <a href="https://pt.wikipedia.org/wiki/Please_Please_Me"
+                                                target="_blank"><strong>Please Please Me
+                                                        (1962)</strong></a>
+                                        <button onclick="esconderSublista('sublista1')" class="show-hide-button"
+                                                id="sabao">Mostrar/Esconder</button>
+                                        <ol id="sublista1" class="sublista">
+                                                <li><a href="https://pt.wikipedia.org/wiki/I_Saw_Her_Standing_There"
+                                                                target="_blank">I Saw Her
+                                                                Standing There</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Misery_(can%C3%A7%C3%A3o_dos_Beatles)"
+                                                                target="_blank">Misery</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Anna_(can%C3%A7%C3%A3o_dos_Beatles)"
+                                                                target="_blank">Anna (Go to Him)</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Chains_(can%C3%A7%C3%A3o)"
+                                                                target="_blank">Chains</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Boys_(can%C3%A7%C3%A3o_dos_Beatles)"
+                                                                target="_blank">Boys</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Ask_Me_Why"
+                                                                target="_blank">Ask Me Why</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Please_Please_Me_(can%C3%A7%C3%A3o)"
+                                                                target="_blank">Please Please Me</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Love_Me_Do"
+                                                                target="_blank">Love Me Do</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/P.S._I_Love_You"
+                                                                target="_blank">P.S. I Love You</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Baby_It%27s_You"
+                                                                target="_blank">Baby It's You</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Do_You_Want_to_Know_a_Secret"
+                                                                target="_blank">Do You
+                                                                Want to Know a Secret</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/A_Taste_of_Honey_(can%C3%A7%C3%A3o_dos_Beatles)"
+                                                                target="_blank">A Taste of Honey</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/There%27s_a_Place"
+                                                                target="_blank">There's a
+                                                                Place</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Twist_and_Shout"
+                                                                target="_blank">Twist and Shout</a>
+                                                </li>
+                                        </ol>
+                                </li>
+                                <li>
+                                        <a href="https://pt.wikipedia.org/wiki/With_the_Beatles"
+                                                target="_blank"><strong>With the Beatles
+                                                        (1963)</strong></a>
+                                        <button onclick="esconderSublista('sublista2')"
+                                                class="show-hide-button">Mostrar/Esconder</button>
+                                        <ol id="sublista2" class="sublista">
+                                                <li><a href="https://pt.wikipedia.org/wiki/It_Won%27t_Be_Long"
+                                                                target="_blank">It Won't Be
+                                                                Long</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/All_I%27ve_Got_to_Do"
+                                                                target="_blank">All I've Got to
+                                                                Do</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/All_My_Loving"
+                                                                target="_blank">All My Loving</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Don%27t_Bother_Me"
+                                                                target="_blank">Don't Bother
+                                                                Me</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Little_Child"
+                                                                target="_blank">Little Child</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Till_There_Was_You"
+                                                                target="_blank">Till There Was
+                                                                You</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Please_Mister_Postman"
+                                                                target="_blank">Please Mister
+                                                                Postman</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Roll_Over_Beethoven"
+                                                                target="_blank">Roll Over
+                                                                Beethoven</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Hold_Me_Tight"
+                                                                target="_blank">Hold Me Tight</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/You_Really_Got_a_Hold_on_Me"
+                                                                target="_blank">You
+                                                                Really Got a Hold on Me</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I_Wanna_Be_Your_Man"
+                                                                target="_blank">I Wanna Be Your
+                                                                Man</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Devil_in_Her_Heart"
+                                                                target="_blank">Devil in Her
+                                                                Heart</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Not_a_Second_Time"
+                                                                target="_blank">Not a Second
+                                                                Time</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Money_(That%27s_What_I_Want)"
+                                                                target="_blank">Money
+                                                                (That's What I Want)</a></li>
+                                        </ol>
+                                </li>
+                                <li>
+                                        <a href="https://pt.wikipedia.org/wiki/A_Hard_Day%27s_Night_(%C3%A1lbum)"
+                                                target="_blank"><strong>A
+                                                        Hard Day's Night (1964)</strong></a>
+                                        <button onclick="esconderSublista('sublista3')"
+                                                class="show-hide-button">Mostrar/Esconder</button>
+                                        <ol id="sublista3" class="sublista">
+                                                <li><a href="https://pt.wikipedia.org/wiki/A_Hard_Day%27s_Night_(can%C3%A7%C3%A3o)"
+                                                                target="_blank">A Hard Day's Night</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I_Should_Have_Known_Better"
+                                                                target="_blank">I Should
+                                                                Have Known Better</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/If_I_Fell" target="_blank">If
+                                                                I Fell</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I%27m_Happy_Just_to_Dance_with_You"
+                                                                target="_blank">I'm Happy Just to Dance with You</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/And_I_Love_Her"
+                                                                target="_blank">And I Love Her</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Tell_Me_Why"
+                                                                target="_blank">Tell Me Why</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Can%27t_Buy_Me_Love"
+                                                                target="_blank">Can't Buy Me
+                                                                Love</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Any_Time_at_All"
+                                                                target="_blank">Any Time at All</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I%27ll_Cry_Instead"
+                                                                target="_blank">I'll Cry
+                                                                Instead</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Things_We_Said_Today"
+                                                                target="_blank">Things We Said
+                                                                Today</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/When_I_Get_Home"
+                                                                target="_blank">When I Get Home</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/You_Can%27t_Do_That"
+                                                                target="_blank">You Can't Do
+                                                                That</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I%27ll_Be_Back_(can%C3%A7%C3%A3o)"
+                                                                target="_blank">I'll Be Back</a></li>
+                                        </ol>
+                                </li>
+                                <li>
+                                        <a href="https://pt.wikipedia.org/wiki/Beatles_for_Sale"
+                                                target="_blank"><strong>Beatles for Sale
+                                                        (1964)</strong></a>
+                                        <button onclick="esconderSublista('sublista4')"
+                                                class="show-hide-button">Mostrar/Esconder</button>
+                                        <ol id="sublista4" class="sublista">
+                                                <li><a href="https://pt.wikipedia.org/wiki/No_Reply" target="_blank">No
+                                                                Reply</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I%27m_a_Loser"
+                                                                target="_blank">I'm a Loser</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Baby%27s_in_Black"
+                                                                target="_blank">Baby's in
+                                                                Black</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Rock_and_Roll_Music"
+                                                                target="_blank">Rock and Roll
+                                                                Music</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I%27ll_Follow_the_Sun"
+                                                                target="_blank">I'll Follow
+                                                                the Sun</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Mr._Moonlight"
+                                                                target="_blank">Mr. Moonlight</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Kansas_City/Hey-Hey-Hey-Hey!"
+                                                                target="_blank">Kansas
+                                                                City/Hey-Hey-Hey-Hey!</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Eight_Days_a_Week"
+                                                                target="_blank">Eight Days a
+                                                                Week</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Words_of_Love"
+                                                                target="_blank">Words of Love</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Honey_Don%27t"
+                                                                target="_blank">Honey Don't</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Every_Little_Thing"
+                                                                target="_blank">Every Little
+                                                                Thing</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I_Don%27t_Want_to_Spoil_the_Party"
+                                                                target="_blank">I
+                                                                Don't Want to Spoil the Party</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/What_You%27re_Doing"
+                                                                target="_blank">What You're
+                                                                Doing</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Everybody%27s_Trying_to_Be_My_Baby"
+                                                                target="_blank">Everybody's Trying to Be My Baby</a>
+                                                </li>
+                                        </ol>
+                                </li>
+                                <li>
+                                        <a href="https://pt.wikipedia.org/wiki/Help!" target="_blank"><strong>Help!
+                                                        (1965)</strong></a>
+                                        <button onclick="esconderSublista('sublista5')"
+                                                class="show-hide-button">Mostrar/Esconder</button>
+                                        <ol id="sublista5" class="sublista">
+                                                <li><a href="https://pt.wikipedia.org/wiki/Help!_(can%C3%A7%C3%A3o)"
+                                                                target="_blank">Help!</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/The_Night_Before"
+                                                                target="_blank">The Night
+                                                                Before</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/You%27ve_Got_to_Hide_Your_Love_Away"
+                                                                target="_blank">You've Got to Hide Your Love Away</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I_Need_You_(can%C3%A7%C3%A3o_de_The_Beatles)"
+                                                                target="_blank">I Need You</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Another_Girl"
+                                                                target="_blank">Another Girl</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/You%27re_Going_to_Lose_That_Girl"
+                                                                target="_blank">You're Going to Lose That Girl</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Ticket_to_Ride"
+                                                                target="_blank">Ticket to Ride</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Act_Naturally"
+                                                                target="_blank">Act Naturally</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/It%27s_Only_Love"
+                                                                target="_blank">It's Only Love</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/You_Like_Me_Too_Much"
+                                                                target="_blank">You Like Me Too
+                                                                Much</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Tell_Me_What_You_See"
+                                                                target="_blank">Tell Me What
+                                                                You See</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I%27ve_Just_Seen_a_Face"
+                                                                target="_blank">I've Just
+                                                                Seen a Face</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Yesterday"
+                                                                target="_blank">Yesterday</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Dizzy_Miss_Lizzy"
+                                                                target="_blank">Dizzy Miss
+                                                                Lizzy</a></li>
+                                        </ol>
+                                </li>
+                                <li>
+                                        <a href="https://pt.wikipedia.org/wiki/Rubber_Soul"
+                                                target="_blank"><strong>Rubber Soul
+                                                        (1965)</strong></a>
+                                        <button onclick="esconderSublista('sublista6')"
+                                                class="show-hide-button">Mostrar/Esconder</button>
+                                        <ol id="sublista6" class="sublista">
+                                                <li><a href="https://pt.wikipedia.org/wiki/Drive_My_Car"
+                                                                target="_blank">Drive My Car</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Norwegian_Wood_(This_Bird_Has_Flown)"
+                                                                target="_blank">Norwegian Wood (This Bird Has Flown)</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/You_Won%27t_See_Me"
+                                                                target="_blank">You Won't See
+                                                                Me</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Nowhere_Man"
+                                                                target="_blank">Nowhere Man</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Think_for_Yourself"
+                                                                target="_blank">Think for
+                                                                Yourself</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/The_Word_(can%C3%A7%C3%A3o_de_The_Beatles)"
+                                                                target="_blank">The Word</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Michelle_(can%C3%A7%C3%A3o_de_The_Beatles)"
+                                                                target="_blank">Michelle</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/What_Goes_On"
+                                                                target="_blank">What Goes On</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Girl_(can%C3%A7%C3%A3o_de_The_Beatles)"
+                                                                target="_blank">Girl</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I%27m_Looking_Through_You"
+                                                                target="_blank">I'm
+                                                                Looking Through You</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/In_My_Life"
+                                                                target="_blank">In My Life</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Wait_(can%C3%A7%C3%A3o_de_The_Beatles)"
+                                                                target="_blank">Wait</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/If_I_Needed_Someone"
+                                                                target="_blank">If I Needed
+                                                                Someone</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Run_for_Your_Life"
+                                                                target="_blank">Run for Your
+                                                                Life</a></li>
+                                        </ol>
+                                </li>
+                                <li>
+                                        <a href="https://pt.wikipedia.org/wiki/Revolver_(%C3%A1lbum_de_The_Beatles)"
+                                                target="_blank"><strong>Revolver (1966)</strong></a>
+                                        <button onclick="esconderSublista('sublista7')"
+                                                class="show-hide-button">Mostrar/Esconder</button>
+                                        <ol id="sublista7" class="sublista">
+                                                <li><a href="https://pt.wikipedia.org/wiki/Taxman"
+                                                                target="_blank">Taxman</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Eleanor_Rigby"
+                                                                target="_blank">Eleanor Rigby</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I%27m_Only_Sleeping"
+                                                                target="_blank">I'm Only
+                                                                Sleeping</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Love_You_To"
+                                                                target="_blank">Love You To</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Here,_There_and_Everywhere"
+                                                                target="_blank">Here,
+                                                                There and Everywhere</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Yellow_Submarine_(can%C3%A7%C3%A3o)"
+                                                                target="_blank">Yellow Submarine</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/She_Said_She_Said"
+                                                                target="_blank">She Said She
+                                                                Said</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Good_Day_Sunshine"
+                                                                target="_blank">Good Day
+                                                                Sunshine</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/And_Your_Bird_Can_Sing"
+                                                                target="_blank">And Your Bird
+                                                                Can Sing</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/For_No_One"
+                                                                target="_blank">For No One</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Doctor_Robert"
+                                                                target="_blank">Doctor Robert</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I_Want_to_Tell_You"
+                                                                target="_blank">I Want to Tell
+                                                                You</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Got_to_Get_You_into_My_Life"
+                                                                target="_blank">Got to
+                                                                Get You into My Life</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Tomorrow_Never_Knows"
+                                                                target="_blank">Tomorrow Never
+                                                                Knows</a></li>
+                                        </ol>
+                                </li>
+                                <li>
+                                        <a href="https://pt.wikipedia.org/wiki/Sgt._Pepper%27s_Lonely_Hearts_Club_Band"
+                                                target="_blank"><strong>Sgt. Pepper's Lonely Hearts Club Band
+                                                        (1967)</strong>
+                                        </a>
+                                        <button onclick="esconderSublista('sublista8')"
+                                                class="show-hide-button">Mostrar/Esconder</button>
+                                        <ol id="sublista8" class="sublista">
+                                                <li><a href="https://pt.wikipedia.org/wiki/Sgt._Pepper%27s_Lonely_Hearts_Club_Band_(can%C3%A7%C3%A3o)"
+                                                                target="_blank">Sgt. Pepper's Lonely Hearts Club
+                                                                Band</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/With_a_Little_Help_from_My_Friends"
+                                                                target="_blank">With a Little Help from My Friends</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Lucy_in_the_Sky_with_Diamonds"
+                                                                target="_blank">Lucy
+                                                                in the Sky with Diamonds</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Getting_Better"
+                                                                target="_blank">Getting Better</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Fixing_a_Hole"
+                                                                target="_blank">Fixing a Hole</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/She%27s_Leaving_Home"
+                                                                target="_blank">She's Leaving
+                                                                Home</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Being_for_the_Benefit_of_Mr._Kite!"
+                                                                target="_blank">Being for the Benefit of Mr. Kite!</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Within_You_Without_You"
+                                                                target="_blank">Within You
+                                                                Without You</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/When_I%27m_Sixty-Four"
+                                                                target="_blank">When I'm
+                                                                Sixty-Four</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Lovely_Rita"
+                                                                target="_blank">Lovely Rita</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Good_Morning_Good_Morning"
+                                                                target="_blank">Good
+                                                                Morning Good Morning</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Sgt._Pepper%27s_Lonely_Hearts_Club_Band_(Reprise)"
+                                                                target="_blank">Sgt. Pepper's Lonely Hearts Club Band
+                                                                (Reprise)</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/A_Day_in_the_Life"
+                                                                target="_blank">A Day in the
+                                                                Life</a></li>
+                                        </ol>
+                                </li>
+                                <li>
+                                        <a href="https://pt.wikipedia.org/wiki/Magical_Mystery_Tour"
+                                                target="_blank"></a><strong>Magical Mystery Tour (1967)</strong> </a>
+                                        <button onclick="esconderSublista('sublista9')"
+                                                class="show-hide-button">Mostrar/Esconder</button>
+                                        <ol id="sublista9" class="sublista">
+                                                <li><a href="https://pt.wikipedia.org/wiki/Magical_Mystery_Tour_(can%C3%A7%C3%A3o)"
+                                                                target="_blank">Magical Mystery Tour</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/The_Fool_on_the_Hill"
+                                                                target="_blank">The Fool on the Hill</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Flying_(can%C3%A7%C3%A3o_dos_Beatles)"
+                                                                target="_blank">Flying</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Blue_Jay_Way"
+                                                                target="_blank">Blue Jay Way</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Your_Mother_Should_Know"
+                                                                target="_blank">Your Mother Should Know</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I_Am_the_Walrus"
+                                                                target="_blank">I Am the Walrus</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Hello,_Goodbye"
+                                                                target="_blank">Hello, Goodbye</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Strawberry_Fields_Forever"
+                                                                target="_blank">Strawberry Fields Forever</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Penny_Lane"
+                                                                target="_blank">Penny Lane</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Baby,_You%27re_a_Rich_Man"
+                                                                target="_blank">Baby, You're a Rich Man</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/All_You_Need_Is_Love"
+                                                                target="_blank">All You Need Is Love</a></li>
+                                        </ol>
+                                </li>
+                                <li>
+                                        <a href="https://pt.wikipedia.org/wiki/The_Beatles_(%C3%A1lbum)"
+                                                target="_blank"><strong>The Beatles
+                                                        - White Album (1968)</strong> </a>
+                                        <button onclick="esconderSublista('sublista10')"
+                                                class="show-hide-button">Mostrar/Esconder</button>
+                                        <ol id="sublista10" class="sublista">
+                                                <li><a href="https://pt.wikipedia.org/wiki/Back_in_the_U.S.S.R."
+                                                                target="_blank">Back in the
+                                                                U.S.S.R.</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Dear_Prudence"
+                                                                target="_blank">Dear Prudence</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Glass_Onion"
+                                                                target="_blank">Glass Onion</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Obladi_Oblada"
+                                                                target="_blank">Ob-La-Di, Ob-La-Da</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Wild_Honey_Pie"
+                                                                target="_blank">Wild Honey Pie</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/The_Continuing_Story_of_Bungalow_Bill"
+                                                                target="_blank">The Continuing Story of Bungalow
+                                                                Bill</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/While_My_Guitar_Gently_Weeps"
+                                                                target="_blank">While
+                                                                My Guitar Gently Weeps</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Happiness_Is_a_Warm_Gun"
+                                                                target="_blank">Happiness Is
+                                                                a Warm Gun</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Martha_My_Dear"
+                                                                target="_blank">Martha My Dear</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I%27m_So_Tired"
+                                                                target="_blank">I'm So Tired</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Blackbird"
+                                                                target="_blank">Blackbird</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Piggies"
+                                                                target="_blank">Piggies</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Rocky_Raccoon"
+                                                                target="_blank">Rocky Raccoon</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Don%27t_Pass_Me_By"
+                                                                target="_blank">Don't Pass Me
+                                                                By</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Why_Don%27t_We_Do_It_in_the_Road%3F"
+                                                                target="_blank">Why Don't We Do It in the Road?</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I_Will_(can%C3%A7%C3%A3o_dos_Beatles)"
+                                                                target="_blank">I Will</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Julia_(can%C3%A7%C3%A3o_dos_Beatles)"
+                                                                target="_blank">Julia</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Birthday_(can%C3%A7%C3%A3o)"
+                                                                target="_blank">Birthday</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Yer_Blues"
+                                                                target="_blank">Yer Blues</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Mother_Nature%27s_Son"
+                                                                target="_blank">Mother
+                                                                Nature's Son</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Everybody%27s_Got_Something_to_Hide_Except_Me_and_My_Monkey"
+                                                                target="_blank">Everybody's Got Something to Hide Except
+                                                                Me and My Monkey</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Sexy_Sadie"
+                                                                target="_blank">Sexy Sadie</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Helter_Skelter_(can%C3%A7%C3%A3o)"
+                                                                target="_blank">Helter Skelter</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Long_Long_Long"
+                                                                target="_blank">Long, Long, Long</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Revolution_1"
+                                                                target="_blank">Revolution 1</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Honey_Pie"
+                                                                target="_blank">Honey Pie</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Savoy_Truffle"
+                                                                target="_blank">Savoy Truffle</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Cry_Baby_Cry"
+                                                                target="_blank">Cry Baby Cry</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Revolution_9"
+                                                                target="_blank">Revolution 9</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Good_Night_(can%C3%A7%C3%A3o_de_The_Beatles)"
+                                                                target="_blank">Good Night</a></li>
+                                        </ol>
+                                </li>
+                                <li>
+                                        <a href="https://pt.wikipedia.org/wiki/Yellow_Submarine_(%C3%A1lbum)"
+                                                target="_blank"><strong>Yellow
+                                                        Submarine (1969)</strong> </a>
+                                        <button onclick="esconderSublista('sublista11')"
+                                                class="show-hide-button">Mostrar/Esconder</button>
+                                        <ol id="sublista12" class="sublista">
+                                                <li><a href="https://pt.wikipedia.org/wiki/Yellow_Submarine_(can%C3%A7%C3%A3o)"
+                                                                target="_blank">Yellow Submarine</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Only_a_Northern_Song"
+                                                                target="_blank">Only a Northern
+                                                                Song</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/All_Together_Now"
+                                                                target="_blank">All Together
+                                                                Now</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Hey_Bulldog"
+                                                                target="_blank">Hey Bulldog</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/It%27s_All_Too_Much"
+                                                                target="_blank">It's All Too
+                                                                Much</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/All_You_Need_Is_Love"
+                                                                target="_blank">All You Need Is
+                                                                Love</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Pepperland"
+                                                                target="_blank">Pepperland</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Sea_of_Time"
+                                                                target="_blank">Sea of Time</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Sea_of_Holes"
+                                                                target="_blank">Sea of Holes</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Sea_of_Monsters"
+                                                                target="_blank">Sea of Monsters</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/March_of_the_Meanies"
+                                                                target="_blank">March of the
+                                                                Meanies</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Pepperland_Laid_Waste"
+                                                                target="_blank">Pepperland
+                                                                Laid Waste</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Yellow_Submarine_in_Pepperland"
+                                                                target="_blank">Yellow Submarine in Pepperland</a></li>
+                                        </ol>
+                                </li>
+                                <li>
+                                        <a href="https://pt.wikipedia.org/wiki/Abbey_Road" target="_blank"><strong>Abbey
+                                                        Road
+                                                        (1969)</strong></a>
+                                        <button onclick="esconderSublista('sublista12')"
+                                                class="show-hide-button">Mostrar/Esconder</button>
+                                        <ol id="sublista12" class="sublista">
+                                                <li><a href="https://pt.wikipedia.org/wiki/Come_Together"
+                                                                target="_blank">Come Together</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Something"
+                                                                target="_blank">Something</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Maxwell%27s_Silver_Hammer"
+                                                                target="_blank">Maxwell's
+                                                                Silver Hammer</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Oh!_Darling"
+                                                                target="_blank">Oh! Darling</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Octopus%27s_Garden"
+                                                                target="_blank">Octopus's
+                                                                Garden</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I_Want_You_(She%27s_So_Heavy)"
+                                                                target="_blank">I Want
+                                                                You (She's So Heavy)</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Here_Comes_the_Sun"
+                                                                target="_blank">Here Comes the
+                                                                Sun</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Because"
+                                                                target="_blank">Because</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/You_Never_Give_Me_Your_Money"
+                                                                target="_blank">You
+                                                                Never Give Me Your Money</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Sun_King" target="_blank">Sun
+                                                                King</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Mean_Mr._Mustard"
+                                                                target="_blank">Mean Mr.
+                                                                Mustard</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Polythene_Pam"
+                                                                target="_blank">Polythene Pam</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/She_Came_In_Through_the_Bathroom_Window"
+                                                                target="_blank">She Came In Through the Bathroom
+                                                                Window</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Golden_Slumbers"
+                                                                target="_blank">Golden Slumbers</a>
+                                                </li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Carry_That_Weight"
+                                                                target="_blank">Carry That
+                                                                Weight</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/The_End_(can%C3%A7%C3%A3o_dos_Beatles)"
+                                                                target="_blank">The End</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Her_Majesty_(can%C3%A7%C3%A3o_dos_Beatles)"
+                                                                target="_blank">Her Majesty</a></li>
+                                        </ol>
+                                </li>
+                                <li>
+
+                                        <a href="https://pt.wikipedia.org/wiki/Let_It_Be_(%C3%A1lbum)"
+                                                target="_blank"><strong>Let It Be
+                                                        (1970)</strong></a>
+                                        <button onclick="esconderSublista('sublista13')"
+                                                class="show-hide-button">Mostrar/Esconder</button>
+                                        <ol id="sublista13" class="sublista">
+                                                <li><a href="https://pt.wikipedia.org/wiki/Two_of_Us"
+                                                                target="_blank">Two of Us</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Dig_a_Pony"
+                                                                target="_blank">Dig a Pony</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Across_the_Universe"
+                                                                target="_blank">Across the Universe</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I_Me_Mine" target="_blank">I
+                                                                Me Mine</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Dig_It" target="_blank">Dig
+                                                                It</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Let_It_Be_(can%C3%A7%C3%A3o_dos_Beatles)"
+                                                                target="_blank">Let It Be</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Maggie_Mae"
+                                                                target="_blank">Maggie Mae</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/I%27ve_Got_a_Feeling"
+                                                                target="_blank">I've Got a Feeling</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/One_After_909"
+                                                                target="_blank">One After 909</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/The_Long_and_Winding_Road"
+                                                                target="_blank">The Long and Winding Road</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/For_You_Blue"
+                                                                target="_blank">For You Blue</a></li>
+                                                <li><a href="https://pt.wikipedia.org/wiki/Get_Back" target="_blank">Get
+                                                                Back</a></li>
+                                        </ol>
+                                </li>
+                        </ol>
+                </span>
+                <span class="texto">
+                        <h1>Blog</h1>
+                        <h2>Quem sou eu </h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dicta sequi et harum, in
+                                repellat
+                                inventore iusto odit. Totam quos officiis eius iure, dolorem tenetur est vel. Saepe,
+                                quas laudantium.
+                        </p>
+                        <h2>Minha historia com beatles</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eveniet quis voluptatibus,
+                                labore enim
+                                atque temporibus nulla ipsam earum nesciunt porro tenetur exercitationem cum deserunt
+                                eius vitae
+                                repellendus sapiente.</p>
+                        <h2>Meus albuns favoritos</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta maiores hic repellendus
+                                fugiat porro
+                                assumenda? Minima qui quibusdam maiores repudiandae tenetur quasi, repellat cumque
+                                impedit assumenda
+                                dolore sed illum rerum.</p>
+                        <h2>Minhas musicas favoritas</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis ipsum eaque, aperiam earum,
+                                sed, odit
+                                incidunt quod fugit porro non voluptas autem officiis atque aliquam ex doloribus cumque
+                                ducimus numquam.
+                        </p>
+                        <h1>Forum - discussões</h1>
+                        <div class="avisos">
+                                <div id="alerta">
+                                </div>
+                                <div class="container">
+                                        <h1>Publicar um aviso</h1>
+                                        <div class="div-form">
+                                                <form id="form_postagem" method="post" onsubmit="return publicar()">
+                                                        <label>
+                                                                Título:
+                                                                <br>
+                                                                <input name="titulo" id="titulo" maxlength="100"
+                                                                        type="text">
+                                                        </label>
+                                                        <br>
+                                                        <label>
+                                                                Descrição (máximo de 250 caracteres):
+                                                                <br>
+                                                                <textarea name="descricao" id="textarea_descricao"
+                                                                        maxlength="250" rows="5"></textarea>
+                                                        </label>
+                                                        <br>
+                                                        <button>Enviar</button>
+                                                </form>
+                                        </div>
+                                        <div class="div-results">
+                                                <div id="feed_container" class="feed-container">
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </span>
+
+
+        </div>
+
+
+
+        <div class="footer">
+                <div class="container">
+                        <h4>Feito por Arthur Moraes 1CCO SPTECH &copy</h4>
+                        <h5><a href="">dados sobre o site</a></h5>
+                </div>
+        </div>
+
+</body>
+
+</html>
+
+<script>
+        function esconderSublista(id) {
+                var sublista = document.getElementById(id);
+                console.log(sublista)
+                sublista.style.display = sublista.style.display == 'block' ? 'none' : 'block';
+
+        }
+
+
+        function limparFormulario() {
+                document.getElementById("form_postagem").reset();
+        }
+
+        function publicar() {
+                var idUsuario = sessionStorage.ID_USUARIO;
+
+                var corpo = {
+                        titulo: form_postagem.titulo.value,
+                        descricao: form_postagem.descricao.value
+                }
+
+                fetch(`/avisos/publicar/${idUsuario}`, {
+                        method: "post",
+                        headers: {
+                                "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(corpo)
+                }).then(function (resposta) {
+
+                        console.log("resposta: ", resposta);
+
+                        if (resposta.ok) {
+                                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
+                                window.location = "/dashboard/mural.html";
+                                limparFormulario();
+                                finalizarAguardar();
+                        } else if (resposta.status == 404) {
+                                window.alert("Deu 404!");
+                        } else {
+                                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                        }
+                }).catch(function (resposta) {
+                        console.log(`#ERRO: ${resposta}`);
+                        finalizarAguardar();
+                });
+
+                return false;
+
+        }
+
+        function editar(idAviso) {
+                sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
+                console.log("cliquei em editar - " + idAviso);
+                window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
+                window.location = "/dashboard/edicao-aviso.html"
+
+        }
+
+        function deletar(idAviso) {
+                console.log("Criar função de apagar post escolhido - ID" + idAviso);
+                fetch(`/avisos/deletar/${idAviso}`, {
+                        method: "DELETE",
+                        headers: {
+                                "Content-Type": "application/json"
+                        }
+                }).then(function (resposta) {
+
+                        if (resposta.ok) {
+                                window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                                window.location = "/dashboard/mural.html"
+                        } else if (resposta.status == 404) {
+                                window.alert("Deu 404!");
+                        } else {
+                                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                        }
+                }).catch(function (resposta) {
+                        console.log(`#ERRO: ${resposta}`);
+                });
+        }
+
+        function atualizarFeed() {
+                //aguardar();
+                fetch("/avisos/listar").then(function (resposta) {
+                        if (resposta.ok) {
+                                if (resposta.status == 204) {
+                                        var feed = document.getElementById("feed_container");
+                                        var mensagem = document.createElement("span");
+                                        mensagem.innerHTML = "Nenhum resultado encontrado."
+                                        feed.appendChild(mensagem);
+                                        throw "Nenhum resultado encontrado!!";
+                                }
+
+                                resposta.json().then(function (resposta) {
+                                        console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                                        var feed = document.getElementById("feed_container");
+                                        feed.innerHTML = "";
+                                        for (let i = 0; i < resposta.length; i++) {
+                                                var publicacao = resposta[i];
+
+                                                // criando e manipulando elementos do HTML via JavaScript
+                                                var divPublicacao = document.createElement("div");
+                                                var spanID = document.createElement("span");
+                                                var spanTitulo = document.createElement("span");
+                                                var spanNome = document.createElement("span");
+                                                var divDescricao = document.createElement("div");
+                                                var divButtons = document.createElement("div");
+                                                var btnEditar = document.createElement("button");
+                                                var btnDeletar = document.createElement("button");
+
+
+                                                spanID.innerHTML = "ID: <b>" + publicacao.idAviso + "</b>";
+                                                spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
+                                                spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
+                                                divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
+                                                btnEditar.innerHTML = "Editar";
+                                                btnDeletar.innerHTML = "Deletar";
+
+                                                divPublicacao.className = "publicacao";
+                                                spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                                                spanNome.className = "publicacao-nome";
+                                                spanTitulo.className = "publicacao-titulo";
+                                                divDescricao.className = "publicacao-descricao";
+
+                                                divButtons.className = "div-buttons"
+
+                                                btnEditar.className = "publicacao-btn-editar"
+                                                btnEditar.id = "btnEditar" + publicacao.idAviso;
+                                                btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
+
+                                                btnDeletar.className = "publicacao-btn-editar"
+                                                btnDeletar.id = "btnDeletar" + publicacao.idAviso;
+                                                btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
+
+                                                divPublicacao.appendChild(spanID);
+                                                divPublicacao.appendChild(spanNome);
+                                                divPublicacao.appendChild(spanTitulo);
+                                                divPublicacao.appendChild(divDescricao);
+                                                divPublicacao.appendChild(divButtons);
+                                                divButtons.appendChild(btnEditar);
+                                                divButtons.appendChild(btnDeletar);
+                                                feed.appendChild(divPublicacao);
+                                        }
+
+                                        finalizarAguardar();
+                                });
+                        } else {
+                                throw ('Houve um erro na API!');
+                        }
+                }).catch(function (resposta) {
+                        console.error(resposta);
+                        finalizarAguardar();
+                });
+        }
+
+        function testar() {
+                aguardar();
+
+                var formulario = new URLSearchParams(new FormData(document.getElementById("form_postagem")));
+
+                var divResultado = document.getElementById("div_feed");
+
+                divResultado.appendChild(document.createTextNode(formulario.get("descricao")));
+                divResultado.innerHTML = formulario.get("descricao");
+
+                finalizarAguardar();
+
+                return false;
+        }
+
+</script>
