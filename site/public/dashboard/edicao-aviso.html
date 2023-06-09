@@ -58,7 +58,7 @@
 
         <div class="dash-right">
 
-            <div class="avisos">
+            <div class="comentarios">
                 <div class="container">
                     <h1>Editar um aviso</h1>
                     <div class="div-form">
@@ -103,7 +103,7 @@
     }
 
     function editar() {
-        fetch(`/avisos/editar/${sessionStorage.getItem("ID_POSTAGEM_EDITANDO")}`, {
+        fetch(`/comentarios/editar/${sessionStorage.getItem("ID_POSTAGEM_EDITANDO")}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

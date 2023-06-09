@@ -17,12 +17,12 @@
 
         <div class="header">
                 <div class="container">
-                        <a href="../index.html">
+                        <a href="/">
                                 <img src="../assets/imgs/beatles-logo.jpg" alt="" class="logo">
                         </a>
                         <ul class="menu">
 
-                                        <li class="menu-item" id="idNome">nome usuario</li>
+                                <li class="menu-item" id="idNome">nome usuario</li>
 
                                 <a href="../blog.html" id="blog" class="menu-item">
                                         <li>Blog</li>
@@ -30,7 +30,7 @@
                                 <a href="../login.html" id="entrar" class="menu-item">
                                         <li>Sair</li>
                                 </a>
-                                
+
                         </ul>
                 </div>
         </div>
@@ -648,7 +648,12 @@
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dicta sequi et harum, in
                                 repellat
                                 inventore iusto odit. Totam quos officiis eius iure, dolorem tenetur est vel. Saepe,
-                                quas laudantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam eligendi adipisci eos expedita, atque praesentium, labore perferendis sint quo doloremque sed, iure suscipit! Fugiat veritatis sed officiis magni. Obcaecati, facere? Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque laboriosam veritatis eius ab, repudiandae ex neque impedit at quas earum perferendis unde, ut dicta voluptatum doloribus est! Esse, molestias neque.
+                                quas laudantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+                                eligendi adipisci eos expedita, atque praesentium, labore perferendis sint quo
+                                doloremque sed, iure suscipit! Fugiat veritatis sed officiis magni. Obcaecati, facere?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque laboriosam veritatis
+                                eius ab, repudiandae ex neque impedit at quas earum perferendis unde, ut dicta
+                                voluptatum doloribus est! Esse, molestias neque.
                         </p>
                         <h2 class="titulo-blog">Minha historia com beatles</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eveniet quis voluptatibus,
@@ -672,30 +677,29 @@
                                 <div id="alerta">
                                 </div>
                                 <!-- <div class="container"> -->
-                                        <h1>Forum - discussões</h1>
-                                        <div class="div-form">
-                                                <form id="form_postagem" method="post" onsubmit="return publicar()">
-                                                        <label>
-                                                                Título:
-                                                                <br>
-                                                                <input name="titulo" id="titulo" maxlength="100"
-                                                                        type="text">
-                                                        </label>
+                                <h1>Forum - discussões</h1>
+                                <div class="div-form">
+                                        <form id="form_postagem" method="post" onsubmit="return publicar()">
+                                                <label>
+                                                        Título:
                                                         <br>
-                                                        <label>
-                                                                Descrição (máximo de 250 caracteres):
-                                                                <br>
-                                                                <textarea name="descricao" id="textarea_descricao"
-                                                                        maxlength="250" rows="5"></textarea>
-                                                        </label>
+                                                        <input name="titulo" id="titulo" maxlength="100" type="text">
+                                                </label>
+                                                <br>
+                                                <label>
+                                                        Comentário (máximo de 550 caracteres):
                                                         <br>
-                                                        <button>Enviar</button>
-                                                </form>
+                                                        <textarea name="descricao" id="textarea_descricao"
+                                                                maxlength="550" rows="5"></textarea>
+                                                </label>
+                                                <br>
+                                                <button>Enviar</button>
+                                        </form>
+                                </div>
+                                <div class="div-results">
+                                        <div id="feed_container" class="feed-container">
                                         </div>
-                                        <div class="div-results">
-                                                <div id="feed_container" class="feed-container">
-                                                </div>
-                                        </div>
+                                </div>
                                 <!-- </div> -->
                         </div>
                 </span>
@@ -721,7 +725,7 @@
         let nomeUsuario = sessionStorage.NOME_USUARIO;
 
         idNome.innerHTML = nomeUsuario;
-        
+
         function esconderSublista(id) {
                 var sublista = document.getElementById(id);
                 console.log(sublista)
@@ -729,6 +733,14 @@
 
         }
 
+        function esconderEditar(div) {
+                div.style.display = div.style.display == 'block' ? 'none' : 'block';
+        }
+        function esconderReposta(id) {
+                var div = document.getElementById(id);
+                console.log(div)
+                div.style.display = div.style.display == 'block' ? 'none' : 'block';
+        }
 
         function limparFormulario() {
                 document.getElementById("form_postagem").reset();
@@ -763,7 +775,6 @@
                         }
                 }).catch(function (resposta) {
                         console.log(`#ERRO: ${resposta}`);
-                        finalizarAguardar();
                 });
 
                 return false;
@@ -799,9 +810,42 @@
                         console.log(`#ERRO: ${resposta}`);
                 });
         }
+        function responder() {
+                var idUsuario = sessionStorage.ID_USUARIO;
+
+                var corpo = {
+                        titulo: form_resposta.titulo_resposta.value,
+                        descricao: form_resposta.descricao_resposta.value
+                }
+
+                fetch(`/avisos/responder/${idUsuario}`, {
+                        method: "post",
+                        headers: {
+                                "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(corpo)
+                }).then(function (resposta) {
+
+                        console.log("resposta: ", resposta);
+
+                        if (resposta.ok) {
+                                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
+                                window.location = "/login/blog.html";
+                                limparFormulario();
+                        } else if (resposta.status == 404) {
+                                window.alert("Deu 404!");
+                        } else {
+                                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                        }
+                }).catch(function (resposta) {
+                        console.log(`#ERRO: ${resposta}`);
+                });
+
+                return false;
+
+        }
 
         function atualizarFeed() {
-                //aguardar();
                 fetch("/avisos/listar").then(function (resposta) {
                         if (resposta.ok) {
                                 if (resposta.status == 204) {
@@ -829,11 +873,14 @@
                                                 var btnEditar = document.createElement("button");
                                                 var btnDeletar = document.createElement("button");
                                                 var btnResponder = document.createElement("button");
+                                                var divEditar = document.createElement("div");
+                                                var editPubli = '';
 
 
-                                                spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
-                                                spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                                                divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
+
+                                                spanTitulo.innerHTML = "<b>Título:</b> " + publicacao.titulo;
+                                                spanNome.innerHTML = "<b>Autor: </b> " + publicacao.nome;
+                                                divDescricao.innerHTML = "<b>Descrição: </b>" + publicacao.descricao;
                                                 btnEditar.innerHTML = "Editar";
                                                 btnDeletar.innerHTML = "Deletar";
                                                 btnResponder.innerHTML = "Responder";
@@ -843,12 +890,19 @@
                                                 spanNome.className = "publicacao-nome";
                                                 spanTitulo.className = "publicacao-titulo";
                                                 divDescricao.className = "publicacao-descricao";
+                                                divButtons.className = "div-buttons";
+                                                divEditar.className = "publicacao-editar";
+                                                divEditar.style.display = 'none'
 
-                                                divButtons.className = "div-buttons"
 
+                                                divEditar.id = "editarPublicacao" + publicacao.idAviso;
                                                 btnEditar.className = "publicacao-btn-editar"
                                                 btnEditar.id = "btnEditar" + publicacao.idAviso;
-                                                btnEditar.setAttribute("onclick", `editar(${publicacao.idAviso})`);
+                                                console.log('editarPublicacao' + publicacao.idAviso);
+                                                console.log("onclick", `esconderEditar(${divEditar.id})`)
+                                                editPubli = `esconderEditar(${divEditar.id})`
+                                                console.log(editPubli, 'aaaaaaaaaaaaaaaaaaaa')
+                                                btnEditar.setAttribute("onclick", `${editPubli};`);
 
                                                 btnDeletar.className = "publicacao-btn-editar"
                                                 btnDeletar.id = "btnDeletar" + publicacao.idAviso;
@@ -862,6 +916,7 @@
                                                 divPublicacao.appendChild(spanTitulo);
                                                 divPublicacao.appendChild(divDescricao);
                                                 divPublicacao.appendChild(divButtons);
+                                                divPublicacao.appendChild(divEditar);
                                                 divButtons.appendChild(btnEditar);
                                                 divButtons.appendChild(btnDeletar);
                                                 divButtons.appendChild(btnResponder);
@@ -876,19 +931,4 @@
                         console.error(resposta);
                 });
         }
-
-        function testar() {
-                aguardar();
-
-                var formulario = new URLSearchParams(new FormData(document.getElementById("form_postagem")));
-
-                var divResultado = document.getElementById("div_feed");
-
-                divResultado.appendChild(document.createTextNode(formulario.get("descricao")));
-                divResultado.innerHTML = formulario.get("descricao");
-
-
-                return false;
-        }
-
 </script>

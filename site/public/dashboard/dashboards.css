@@ -10,37 +10,37 @@ body {
   justify-content: center;
 }
 
-.dash-right .avisos {
+.dash-right .comentarios {
   width: 100%;
   /* border: 3px solid pink; */
   color: rgb(216, 216, 216);
   font-family: "Exo 2", sans-serif;
 }
 
-.dash-right .avisos .container {
+.dash-right .comentarios .container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.dash-right .avisos .container .div-form {
+.dash-right .comentarios .container .div-form {
   width: 100%;
 }
 
-.dash-right .avisos .container .div-form #form_postagem {
+.dash-right .comentarios .container .div-form #form_postagem {
   width: 100%;
 }
 
-.dash-right .avisos .div-form label {
+.dash-right .comentarios .div-form label {
   width: 100%;
 }
 
-.dash-right .avisos .div-form input {
+.dash-right .comentarios .div-form input {
   width: 100%;
   border-radius: 5px;
 }
 
-.dash-right .avisos .div-form textarea {
+.dash-right .comentarios .div-form textarea {
   width: 100%;
   /* color: #E6005A; */
   border: 3px solid #e6005a;
@@ -48,7 +48,7 @@ body {
   border-radius: 5px;
 }
 
-.dash-right .avisos .div-form button {
+.dash-right .comentarios .div-form button {
   cursor: pointer;
   font-family: "Exo 2", sans-serif;
   border: 0;

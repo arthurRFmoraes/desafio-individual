@@ -1,0 +1,68 @@
+<div>
+    <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx = document.getElementById("myChart");
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: ["Please Please Me", "With The Beatles", "A Hard Day's Night", "Beatles for Sale", "Help!", "Rubber Soul", "Revolver", "Sgt. Pepper's Lonely Hearts Club Band", "Magical Mystery Tour", "White Album", "Yellow Submarine", "Abbey Road", "Let It Be"],
+            datasets: [{
+                label: "# of Votes",
+                data: [12, 19, 3, 5, 10, 3, 5, 8, 6, 6, 4, 7, 21],
+                borderWidth: 1,
+                backgroundColor: ["#F44336", "#FF5722", "#FF9800", "#FFC107", "#FFEB3B", "#CDDC39", "#8BC34A", "#4CAF50", "#009688", "#00BCD4", "#03A9F4", "#2196F3", "#3F51B5"]
+            }]
+        },
+        options: {
+            animation: {
+                duration: 9000
+            }
+            ,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+
+            scales: {
+                y: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Votos',
+                        font: {
+                        size: 16 
+                    }
+                    },
+                    beginAtZero: true
+                },
+                x: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Albuns',
+                        font: {
+                        size: 16 
+                    }
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+
+<style>
+    /* canvas {
+        width: 100px;
+    } */
+    div {
+        width: 800px;
+        height: 500px;
+    }
+</style>

@@ -226,7 +226,7 @@ button{
   border: 1px solid gold;
   display: flex;
 } */
-.avisos{
+.comentarios{
   display: flex;
   border: 1px solid turquoise;
   flex-direction: column;
@@ -243,13 +243,31 @@ button{
 }
 .publicacao-titulo{
   border: 2px solid green !important;
+  padding: 10px;
 }
 .publicacao-descricao{
   border: 2px solid blue;
+  padding: 10px;
 }
 .div-buttons{
   border: 2px solid orangered;
+  padding: 10px;
 }
 .publicacao-btn-editar{
   border: 2px solid purple;
+  padding: 10px;
+}
+#textarea_descricao{
+  width: 97%;
+}
+#titulo{
+  width: 50%;
+}
+.div-form{
+  padding: 10px;
+}
+.publicacao-editar{
+  width: 100px;
+  height: 100px ;
+  background-color: #000000;
 }

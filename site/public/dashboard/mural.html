@@ -58,7 +58,7 @@
         <div class="dash-right">
 
 
-            <div class="avisos">
+            <div class="comentarios">
                 <div id="alerta">
                 </div>
                 <div class="container">
@@ -131,7 +131,7 @@
             descricao: form_postagem.descricao.value
         }
 
-        fetch(`/avisos/publicar/${idUsuario}`, {
+        fetch(`/comentarios/publicar/${idUsuario}`, {
             method: "post",
             headers: {
                 "Content-Type": "application/json"
@@ -170,7 +170,7 @@
 
     function deletar(idAviso) {
         console.log("Criar função de apagar post escolhido - ID" + idAviso);
-        fetch(`/avisos/deletar/${idAviso}`, {
+        fetch(`/comentarios/deletar/${idAviso}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -192,7 +192,7 @@
 
     function atualizarFeed() {
         //aguardar();
-        fetch("/avisos/listar").then(function (resposta) {
+        fetch("/comentarios/listar").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
                     var feed = document.getElementById("feed_container");
