@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="../js/funcoes.js"></script>
+
+        <link rel="stylesheet" href="../css/style.css">
+        <link type="image/png" sizes="16x16" rel="icon" href="../assets/imgs/favicon-branco.png">
+        <title>The Beatles blog</title>
+</head>
+
+<body>
+
+        <div class="header">
+                <div class="container">
+                        <a href="/">
+                                <img src="../assets/imgs/beatles-logo.jpg" alt="" class="logo">
+                        </a>
+                        <ul class="menu">
+
+                                <a href="./perfil.html">
+                                        <li id="idNome">nome usuario</li>
+                                </a>
+                                <a href="../blog.html" id="blog" class="menu-item">
+                                        <li>Blog</li>
+                                </a>
+                                <a onclick="limparSessao()" id="entrar" class="menu-item">
+                                        <li>Sair</li>
+                                </a>
+
+                        </ul>
+                </div>
+        </div>
+        <div class="banner">
+                <!-- banner com a imagem dos beatles -->
+        </div>
+        <div class="container">
+
+                <span class="texto">
+                        <h1>Olá <span id="nomePagina">nome usuario</span>!</h1>
+                        <h2>Informações do perfil: </h2>
+                        Email: <span id="idEmail">email@email.email</span> <br>
+                        Data de cadastro: <span id="idData">00/00/0000</span>
+                </span>
+        </div>
+        <div class="container">
+                <span id="votacao">
+
+                        Enquete: Qual o seu album favorito dos Beatles? <br>
+
+                        <input type="radio" name="album" value="1"> Please Please Me <br>
+                        <input type="radio" name="album" value="2"> With the Beatles <br>
+                        <input type="radio" name="album" value="3"> A Hard Day's Night <br>
+                        <input type="radio" name="album" value="4"> Beatles for Sale <br>
+                        <input type="radio" name="album" value="5"> Help! <br>
+                        <input type="radio" name="album" value="6"> Rubber Soul <br>
+                        <input type="radio" name="album" value="7"> Revolver <br>
+                        <input type="radio" name="album" value="8"> Sgt. Pepper's Lonely Hearts Club Band <br>
+                        <input type="radio" name="album" value="9"> Magical Mystery Tour <br>
+                        <input type="radio" name="album" value="10"> The Beatles (White Album) <br>
+                        <input type="radio" name="album" value="11"> Yellow Submarine <br>
+                        <input type="radio" name="album" value="12"> Abbey Road <br>
+                        <input type="radio" name="album" value="13"> Let It Be <br>
+                        <button onclick="votar()">Votar</button>
+                </span>
+        </div>
+        <div class="container">
+                <span id="dashboard">
+                        <h1>Votos em cada album:</h1>
+                </span>
+        </div>
+
+
+
+        </div>
+
+
+
+        <div class="footer">
+                <div class="container">
+                        <h4>Feito por Arthur Moraes 1CCO SPTECH &copy</h4>
+                        <!-- <h5><a href="">dados sobre o site</a></h5> -->
+                </div>
+        </div>
+
+</body>
+
+</html>
+
+<script>
+        validarSessao();
+        let nomeUsuario = sessionStorage.NOME_USUARIO;
+        let emailUsuario = sessionStorage.EMAIL_USUARIO;
+        let idUsuario = sessionStorage.ID_USUARIO;
+
+        idEmail.innerHTML = emailUsuario
+        idNome.innerHTML = nomeUsuario;
+        nomePagina.innerHTML = nomeUsuario;
+        var select;
+        verificarDados();
+        function verificarDados() {
+                // fetch(`/enquete/verificar/${idUsuario}`, {
+                //         method: "get",
+                //         headers: {
+                //                 "Content-Type": "application/json"
+                //         }
+                // }).then(function (resposta) {
+
+                //         console.log("resposta: ", resposta);
+
+                //         if (response.ok) {
+                //                 response.json().then(function (resposta) {
+                //                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                //                 });
+
+                //         } else if (resposta.status == 404) {
+                //                 window.alert("Deu 404!");
+                //         } else {
+                //                 throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                //         }
+                // }).catch(function (resposta) {
+                //         console.log(`#ERRO: ${resposta}`);
+
+                // });
+
+                fetch(`/enquete/verificar/${idUsuario}`).then(function (response) {
+                        if (response.ok) {
+                                response.json().then(function (resposta) {
+                                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                                        select = resposta;
+                                        console.log(select)
+
+                                });
+                        } else {
+                                console.error('Nenhum dado encontrado');
+                        }
+                })
+                        .catch(function (error) {
+                                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                        });
+        }
+        function votar() {
+                if (select.length == 0) {
+                        if (document.querySelector('input[name="album"]:checked') == null) {
+                                alert('Escolha um album!!')
+                        } else {
+                                let idAlbum = document.querySelector('input[name="album"]:checked').value
+                                console.log(idAlbum);
+                                fetch(`/enquete/votar/${idAlbum}/${idUsuario}`, {
+                                        method: "post",
+                                        headers: {
+                                                "Content-Type": "application/json"
+                                        }
+                                }).then(function (resposta) {
+
+                                        console.log("resposta: ", resposta);
+
+                                        if (resposta.ok) {
+                                                window.alert("Voto concluido!!!!!!!");
+                                                verificarDados();
+
+                                        } else if (resposta.status == 404) {
+                                                window.alert("Deu 404!");
+                                        } else {
+                                                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                                        }
+                                }).catch(function (resposta) {
+                                        console.log(`#ERRO: ${resposta}`);
+
+                                });
+
+                        }
+
+                } else {
+                        alert("Você já votou anteriormente!")
+                }
+        }
+
+</script>

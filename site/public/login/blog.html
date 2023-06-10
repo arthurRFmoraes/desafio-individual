@@ -22,12 +22,14 @@
                         </a>
                         <ul class="menu">
 
-                                <li class="menu-item" id="idNome">nome usuario</li>
+                                <a href="./perfil.html">
+                                        <li id="idNome">nome usuario</li>
+                                </a>
 
                                 <a href="../blog.html" id="blog" class="menu-item">
                                         <li>Blog</li>
                                 </a>
-                                <a href="../login.html" id="entrar" class="menu-item">
+                                <a onclick="limparSessao()" id="entrar" class="menu-item">
                                         <li>Sair</li>
                                 </a>
 
@@ -721,6 +723,7 @@
 </html>
 
 <script>
+        validarSessao();
         atualizarFeed();
         let nomeUsuario = sessionStorage.NOME_USUARIO;
 
@@ -736,9 +739,7 @@
         function esconderEditar(div) {
                 div.style.display = div.style.display == 'block' ? 'none' : 'block';
         }
-        function esconderReposta(id) {
-                var div = document.getElementById(id);
-                console.log(div)
+        function esconderResposta(div) {
                 div.style.display = div.style.display == 'block' ? 'none' : 'block';
         }
 
@@ -781,12 +782,28 @@
 
         }
 
-        function editar(idAviso) {
-                sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-                console.log("cliquei em editar - " + idAviso);
-                window.alert("Você será redirecionado à página de edição do aviso de id número: " + idAviso);
-                window.location = "/login/blog.html"
+        function editar(idPost, idTextArea) {
+                fetch(`/avisos/editar/${idPost}`, {
+                        method: "PUT",
+                        headers: {
+                                "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                                descricao: idTextArea.value
+                        })
+                }).then(function (resposta) {
 
+                        if (resposta.ok) {
+                                window.alert("Post atualizado com sucesso pelo usuario de email: " + sessionStorage.EMAIL_USUARIO + "!");
+                                window.location = "/login/blog.html"
+                        } else if (resposta.status == 404) {
+                                window.alert("Deu 404!");
+                        } else {
+                                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                        }
+                }).catch(function (resposta) {
+                        console.log(`#ERRO: ${resposta}`);
+                });
         }
 
         function deletar(idAviso) {
@@ -863,6 +880,7 @@
                                         feed.innerHTML = "";
                                         for (let i = 0; i < resposta.length; i++) {
                                                 var publicacao = resposta[i];
+                                                let autorDaPublicacao = publicacao.nome == sessionStorage.NOME_USUARIO
 
                                                 // criando e manipulando elementos do HTML via JavaScript
                                                 var divPublicacao = document.createElement("div");
@@ -870,20 +888,36 @@
                                                 var spanNome = document.createElement("span");
                                                 var divDescricao = document.createElement("div");
                                                 var divButtons = document.createElement("div");
-                                                var btnEditar = document.createElement("button");
-                                                var btnDeletar = document.createElement("button");
+                                                if (autorDaPublicacao) {
+                                                        var btnEditar = document.createElement("button");
+                                                        var btnDeletar = document.createElement("button");
+                                                        var divEditar = document.createElement("div");
+                                                        var labelEdicao = document.createElement("label");
+                                                        var textAreaEdicao = document.createElement("textarea");
+                                                        var btnEdicao = document.createElement("button");
+                                                }
                                                 var btnResponder = document.createElement("button");
-                                                var divEditar = document.createElement("div");
+                                                var divResposta = document.createElement("div")
+                                                var btnEnvResposta = document.createElement("button");
                                                 var editPubli = '';
+                                                var labelResposta = document.createElement("label");
+                                                var textAreaResposta = document.createElement("textarea")
 
 
 
                                                 spanTitulo.innerHTML = "<b>Título:</b> " + publicacao.titulo;
                                                 spanNome.innerHTML = "<b>Autor: </b> " + publicacao.nome;
                                                 divDescricao.innerHTML = "<b>Descrição: </b>" + publicacao.descricao;
-                                                btnEditar.innerHTML = "Editar";
-                                                btnDeletar.innerHTML = "Deletar";
+                                                if (autorDaPublicacao) {
+                                                        btnEditar.innerHTML = "Editar";
+                                                        btnDeletar.innerHTML = "Deletar";
+                                                        btnEdicao.innerHTML = "Enviar";
+                                                        labelEdicao.innerHTML = "Edição (máximo de 550 caracteres): <br>"
+                                                }
+                                                labelResposta.innerHTML = "Responder (máximo de 550 caracteres): <br>"
                                                 btnResponder.innerHTML = "Responder";
+                                                btnEnvResposta.innerHTML = "Enviar";
+
 
                                                 divPublicacao.className = "publicacao";
                                                 spanTitulo.id = "inputNumero" + publicacao.idAviso;
@@ -891,34 +925,60 @@
                                                 spanTitulo.className = "publicacao-titulo";
                                                 divDescricao.className = "publicacao-descricao";
                                                 divButtons.className = "div-buttons";
-                                                divEditar.className = "publicacao-editar";
-                                                divEditar.style.display = 'none'
+
+                                                if (autorDaPublicacao) {
+                                                        divEditar.className = "publicacao-editar";
+                                                        divEditar.style.display = 'none';
+
+                                                        divEditar.id = "editarPublicacao" + publicacao.idAviso;
+
+                                                        textAreaEdicao.id = "textarea_descricao" + publicacao.idAviso;
+                                                        textAreaEdicao.maxlength = "250";
+                                                        textAreaEdicao.rows = "5";
+
+                                                        btnEditar.className = "publicacao-btn-editar"
+                                                        btnEditar.id = "btnEditar" + publicacao.idAviso;
+                                                        btnEditar.setAttribute("onclick", `esconderEditar(${divEditar.id})`);
+
+                                                        btnDeletar.className = "publicacao-btn-editar"
+                                                        btnDeletar.id = "btnDeletar" + publicacao.idAviso;
+                                                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
+
+                                                        btnEdicao.className = "publicacao-btn-editar";
+                                                        btnEdicao.id = "btnEdicao" + publicacao.idAviso;
+                                                        btnEdicao.setAttribute("onclick", `editar(${publicacao.idAviso}, ${textAreaEdicao.id})`)
 
 
-                                                divEditar.id = "editarPublicacao" + publicacao.idAviso;
-                                                btnEditar.className = "publicacao-btn-editar"
-                                                btnEditar.id = "btnEditar" + publicacao.idAviso;
-                                                console.log('editarPublicacao' + publicacao.idAviso);
-                                                console.log("onclick", `esconderEditar(${divEditar.id})`)
-                                                editPubli = `esconderEditar(${divEditar.id})`
-                                                console.log(editPubli, 'aaaaaaaaaaaaaaaaaaaa')
-                                                btnEditar.setAttribute("onclick", `${editPubli};`);
+                                                }
+                                                divResposta.className = "publicacao-resposta";
+                                                divResposta.style.display = "none";
+                                                divResposta.id = "responderPublicacao" + publicacao.idAviso;
 
-                                                btnDeletar.className = "publicacao-btn-editar"
-                                                btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                                                btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
 
                                                 btnResponder.className = "publicacao-btn-editar"
                                                 btnResponder.id = "btnResponder" + publicacao.idAviso;
-                                                btnResponder.setAttribute("onclick", `responder(${publicacao.idAviso})`);
+                                                btnResponder.setAttribute("onclick", `esconderResposta(${divResposta.id})`);
+
+                                                btnEnvResposta.className = "publicacao-btn-editar"
+                                                btnEnvResposta.id = "btnResponder" + publicacao.idAviso;
+                                                btnEnvResposta.setAttribute("onclick", `responder(${publicacao.idAviso})`);
 
                                                 divPublicacao.appendChild(spanNome);
                                                 divPublicacao.appendChild(spanTitulo);
                                                 divPublicacao.appendChild(divDescricao);
                                                 divPublicacao.appendChild(divButtons);
-                                                divPublicacao.appendChild(divEditar);
-                                                divButtons.appendChild(btnEditar);
-                                                divButtons.appendChild(btnDeletar);
+                                                if (autorDaPublicacao) {
+                                                        divPublicacao.appendChild(divEditar);
+                                                        divButtons.appendChild(btnEditar);
+                                                        divButtons.appendChild(btnDeletar);
+                                                        divEditar.appendChild(labelEdicao);
+                                                        labelEdicao.appendChild(textAreaEdicao);
+                                                        divEditar.appendChild(btnEdicao);
+                                                }
+                                                divResposta.appendChild(labelResposta);
+                                                labelResposta.appendChild(textAreaResposta);
+                                                divResposta.appendChild(btnEnvResposta);
+                                                divPublicacao.appendChild(divResposta);
                                                 divButtons.appendChild(btnResponder);
                                                 feed.appendChild(divPublicacao);
                                         }
