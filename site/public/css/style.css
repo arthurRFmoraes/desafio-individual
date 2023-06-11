@@ -2,6 +2,12 @@ body {
   margin: 0;
   padding: 0;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+
+}
+#corpo{
+  background-image: url("https://crosstownarts.org/wp-content/uploads/2019/07/60806728_2361750724097454_2642373543899168768_o.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 a{
   text-decoration: none;
@@ -77,12 +83,11 @@ a{
 }
 /* content box */
 .content-box{
-/* */  border: 1px solid red;
-  /* width: 30%; */
+
 }
 
 .container{
-/* */  border: 1px solid rebeccapurple;
+
 }
 
 .content-link {
@@ -101,11 +106,23 @@ a{
 .content-box img{
   width: 100px;
 }
-.content{
-/* */  border: 1px solid olivedrab;
+/* .content{
   width: 40%;
   margin: 30px;
   padding: 20px;
+  border: 1px solid;
+} */
+.content-link{
+  background-color: #fafafa;
+  border-radius: 12px;
+  width: 40%;
+  margin: 30px;
+  padding: 20px;
+  transition: 0.5s;
+}
+.content-link:hover{
+  transform: scale(1.1);
+  background-color: #fcfcfc;
 }
 
 /* FOOTER */
@@ -143,7 +160,12 @@ button{
   justify-content: center;
 
 }
-
+.texto{
+  background-color: white;
+}
+.disc-list{
+  background-color: white
+}
 
 .formulario{
   border: 2px solid;
@@ -197,7 +219,6 @@ button{
 }
 .table-discos{
   margin: 15px;
-/* */  border: 1px solid;
   display: flex;
 }
 
@@ -205,12 +226,13 @@ button{
   display: flex;
   /* justify-content: center; */
 }
-  .table-discos span{
-    border: 1px solid;
-    }
+
 .disc-list{
   width: 30%;
   font-size: 15px;
+  height: 800px;
+  border: 1px solid;
+  margin-right: 10px;
 }
 .disc-list li{
   padding: 5px;
@@ -239,43 +261,87 @@ button{
   flex-direction: column;
 }
 .publicacao-nome {
-  border: 2px solid red !important;
-  padding: 10px;
+  /* border: 2px solid red !important; */
+  padding: 2px;
 
-}
-.publicacao-nome-autoral{
-  border: 2px solid blue !important;
 }
 .publicacao-titulo{
-  border: 2px solid green !important;
-  padding: 10px;
+  /* border: 2px solid green !important; */
+  padding: 2px;
 }
 .publicacao-descricao{
-  border: 2px solid blue;
-  padding: 10px;
+  /* border: 2px solid blue; */
+  padding: 2px;
 }
 .div-buttons{
-  border: 2px solid orangered;
-  padding: 10px;
+  /* border: 2px solid orangered; */
+  padding: 2px;
+  margin: 10px;
+}
+.publicacao-btn-editar{
+  /* border: 2px solid purple; */
+  padding: 5px;
+  margin: 2px;
+  font-size: 14px;
+  background-color: #DDEEFF;
+  border: 1px solid #9ccdff;
+}
+.publicacao-btn-editar:hover{
+  color: #4444ff;
+}
+.btn-excluir{
+  background-color: #efefef;
+  border: 1px solid #c2c2c2;
+}
+.btn-excluir:hover{
+  color: #ff4444;
+  border-color: #ff4444;
+}
+.btn-editar{
+}
+.btn-editar:hover{
+
+}
+.btn-enviar-edicao{
+  margin: 5px;
 }
 
-.publicacao-btn-editar{
-  border: 2px solid purple;
-  padding: 10px;
-}
 #textarea_descricao{
   width: 97%;
 }
 #titulo{
+  margin-bottom: 5px;
   width: 50%;
 }
-.div-form{
-  padding: 10px;
+.div-results{
+  margin-top: 20px;
+  border-radius: 2px;
+  background-color: #efefef;
+  padding: 20px;
+}
+#titulo-forum{
+  margin-top: 410px;
+}
+.texto p{
+  font-size: 20px;
+}
+
+.publicacao{
+  background-color: white;
+}
+label{
+  display: block;
 }
 .publicacao-editar{
-  width: 100%;
-  height: 100% ;
+  width: 90%;
+  height: 100%;
+  margin:5px;
+  border: 1px solid;
+  padding: 10px;
   /* background-color: #000000; */
+}
+.publicacao{
+  margin: 30px 0;
 }
 .publicacao-resposta{
   width: 100%;
@@ -284,9 +350,25 @@ button{
   border: 1px solid;
   /* background-color: #000000; */
 }
-#votacao{
+#infos-perfil{
+  border-bottom: 2px solid;
+  margin-bottom: 40px;
+}
+#idAlbum{
+  font-family: 'Times New Roman', Times, serif;
+}
 
-  padding: 50px;
+#votacao{
+  border: 1px solid;
+  padding: 20px;
+}
+.opcao{
+  font-size: 20px;
+
+}
+#titulo-enquete{
+  margin: 10px;
+  font-size: 20px;
 }
 #dashboard{
   display: block;
@@ -294,4 +376,11 @@ button{
 #divGrafico {
   width: 800px;
   height: 500px;
+}
+#btn-votar{
+  padding: 10px;
+  margin: 0 40%;
+  background-color: #DDEEFF;
+  border: 1px solid #9ccdff;
+  font-size: 20px
 }
