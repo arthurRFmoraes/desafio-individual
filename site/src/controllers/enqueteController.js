@@ -36,8 +36,21 @@ function verificar(req, res) {
     });
 }
 
+function dadosGrafico(req, res) {
+
+    enqueteModel.dadosGrafico()
+    .then(function (resultado) {
+        res.json(resultado);
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao verificar a tabela: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 
 module.exports = {
     votarNoAlbum,
-    verificar
+    verificar,
+    dadosGrafico
 }

@@ -241,6 +241,10 @@ button{
 .publicacao-nome {
   border: 2px solid red !important;
   padding: 10px;
+
+}
+.publicacao-nome-autoral{
+  border: 2px solid blue !important;
 }
 .publicacao-titulo{
   border: 2px solid green !important;
@@ -254,6 +258,7 @@ button{
   border: 2px solid orangered;
   padding: 10px;
 }
+
 .publicacao-btn-editar{
   border: 2px solid purple;
   padding: 10px;
@@ -285,4 +290,8 @@ button{
 }
 #dashboard{
   display: block;
+}
+#divGrafico {
+  width: 800px;
+  height: 500px;
 }

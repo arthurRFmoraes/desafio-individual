@@ -10,6 +10,7 @@
 
         <link rel="stylesheet" href="../css/style.css">
         <link type="image/png" sizes="16x16" rel="icon" href="../assets/imgs/favicon-branco.png">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <title>The Beatles blog</title>
 </head>
 
@@ -71,6 +72,9 @@
         <div class="container">
                 <span id="dashboard">
                         <h1>Votos em cada album:</h1>
+                        <div id="divGrafico">
+                                <canvas id="myChart"></canvas>
+                        </div>
                 </span>
         </div>
 
@@ -101,7 +105,9 @@
         idNome.innerHTML = nomeUsuario;
         nomePagina.innerHTML = nomeUsuario;
         var select;
+        var votos;
         verificarDados();
+        dadosGrafico()
         function verificarDados() {
                 // fetch(`/enquete/verificar/${idUsuario}`, {
                 //         method: "get",
@@ -144,6 +150,7 @@
                                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
                         });
         }
+
         function votar() {
                 if (select.length == 0) {
                         if (document.querySelector('input[name="album"]:checked') == null) {
@@ -163,7 +170,9 @@
                                         if (resposta.ok) {
                                                 window.alert("Voto concluido!!!!!!!");
                                                 verificarDados();
+                                                window.location ="perfil.html"
 
+                                                
                                         } else if (resposta.status == 404) {
                                                 window.alert("Deu 404!");
                                         } else {
@@ -180,5 +189,77 @@
                         alert("Você já votou anteriormente!")
                 }
         }
+
+        function dadosGrafico(){
+                fetch(`/enquete/dados-grafico`).then(function (response) {
+                        if (response.ok) {
+                                response.json().then(function (resposta) {
+                                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                                        votos = resposta[0];
+                                        console.log(votos.album13)
+
+                                });
+                        } else {
+                                console.error('Nenhum dado encontrado');
+                        }
+                })
+                        .catch(function (error) {
+                                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                        });
+        }
+
+        setTimeout(() => {
+                const ctx = document.getElementById("myChart");
+                new Chart(ctx, {
+                type: "bar",
+                data: {
+                        labels: ["Please Please Me", "With The Beatles", "A Hard Day's Night", "Beatles for Sale", "Help!", "Rubber Soul", "Revolver", "Sgt. Pepper's Lonely Hearts Club Band", "Magical Mystery Tour", "White Album", "Yellow Submarine", "Abbey Road", "Let It Be"],
+                        datasets: [{
+                                label: "# of Votes",
+                                data: [votos.album1, votos.album2, votos.album3, votos.album4, votos.album5, votos.album6, votos.album7, votos.album8, votos.album9, votos.album10, votos.album11, votos.album12, votos.album13],
+                                borderWidth: 1,
+                                backgroundColor: ['#CC4D43', '#FFA733', '#7A9E6E', '#A76D8E', '#6AA7C7', '#FF4D9C', '#9F7F53', '#BB6B3E', '#F7E254', '#4B91C9', '#A2B32D', '#E88579', '#6D5D98']
+                        }]
+                },
+                options: {
+                        animation: {
+                                duration: 1500
+                        }
+                        ,
+                        plugins: {
+                                legend: {
+                                        display: false
+                                }
+                        },
+
+                        scales: {
+                                y: {
+                                        display: true,
+                                        title: {
+                                                display: true,
+                                                text: 'Votos',
+                                                font: {
+                                                        size: 16
+                                                }
+                                        },
+                                        beginAtZero: true
+                                },
+                                x: {
+                                        display: true,
+                                        title: {
+                                                display: true,
+                                                text: 'Albuns',
+                                                font: {
+                                                        size: 16
+                                                }
+                                        }
+                                }
+                        }
+                }
+        });
+        }, 100)
+        
+        
+
 
 </script>
