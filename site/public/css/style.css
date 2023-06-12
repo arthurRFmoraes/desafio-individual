@@ -106,23 +106,45 @@ a{
 .content-box img{
   width: 100px;
 }
-/* .content{
-  width: 40%;
-  margin: 30px;
-  padding: 20px;
-  border: 1px solid;
-} */
+
 .content-link{
   background-color: #fafafa;
   border-radius: 12px;
-  width: 40%;
+  border: 1px solid;
+  width: 42%;
+  height: 200px;
   margin: 30px;
-  padding: 20px;
-  transition: 0.5s;
+  padding: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.content-link:hover{
+#noticia1{
+  background-image: url("https://www.lavozdegalicia.es/default/2023/01/11/00121673452651912163493/Foto/j07e3008.jpg");
+}
+#noticia2{
+  background-image: url("https://faroutmagazine.co.uk/static/uploads/1/2023/04/The-Beatles-Revolver-1966-Far-Out-Magazine-1140x855.jpg");
+}
+#noticia3{
+  background-image: url("https://rollingstone.uol.com.br/media/_versions/beatles_com_pete_best_repros_tt_liverpooll_beatles_museum_widelg.jpg");
+}
+#noticia4{
+  background-image: url("https://super.abril.com.br/wp-content/uploads/2022/08/Arquivo-1967-o-ano-mais-revolucionario-dos-Beatles-2.jpg?quality=90&strip=info&w=1024");
+}
+
+.content{
+  transition: 0.5s;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  padding: 20px;
+  border-radius: 4px;
+
+}
+.content:hover{
   transform: scale(1.1);
-  background-color: #fcfcfc;
+  /* background-color: #fcfcfc; */
 }
 
 /* FOOTER */
@@ -136,7 +158,7 @@ a{
 }
 
 .footer .container {
-  justify-content:space-between;
+  justify-content:center;
   text-align: center;
 }
 
@@ -152,13 +174,20 @@ button{
   display: flex;
   width: 15%;
   margin: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 150px;
+  margin-bottom: 150px;
   padding: 10px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
+}
+
+#cadastroBody{
+  background-image: url("https://static.dw.com/image/63278585_605.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 .texto{
   background-color: white;
@@ -175,7 +204,7 @@ button{
   flex-direction: column;
   align-items: center;
   padding: 60px;
-  background-color: white;
+  background-color: #fffffff6;
 
 }
 .formulario input{
@@ -230,7 +259,7 @@ button{
 .disc-list{
   width: 30%;
   font-size: 15px;
-  height: 800px;
+  height: 30%;
   border: 1px solid;
   margin-right: 10px;
 }
@@ -320,7 +349,7 @@ button{
   padding: 20px;
 }
 #titulo-forum{
-  margin-top: 410px;
+  margin-top: 100px;
 }
 .texto p{
   font-size: 20px;
@@ -383,4 +412,7 @@ label{
   background-color: #DDEEFF;
   border: 1px solid #9ccdff;
   font-size: 20px
+}
+textarea{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

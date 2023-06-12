@@ -33,9 +33,7 @@
                         </ul>
                 </div>
         </div>
-        <div class="banner">
-                <!-- banner com a imagem dos beatles -->
-        </div>
+
         <div class="table-discos">
                 <span class="disc-list">
                         <ol>
@@ -643,40 +641,57 @@
                 </span>
                 <span class="texto">
                         <h1>Blog</h1>
-                        <h2 class="titulo-blog">Quem sou eu </h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi dicta sequi et harum, in
-                                repellat
-                                inventore iusto odit. Totam quos officiis eius iure, dolorem tenetur est vel. Saepe,
-                                quas laudantium. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-                                eligendi adipisci eos expedita, atque praesentium, labore perferendis sint quo
-                                doloremque sed, iure suscipit! Fugiat veritatis sed officiis magni. Obcaecati, facere?
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque laboriosam veritatis
-                                eius ab, repudiandae ex neque impedit at quas earum perferendis unde, ut dicta
-                                voluptatum doloribus est! Esse, molestias neque.
-                        </p>
                         <h2 class="titulo-blog">Minha historia com beatles</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui illo eveniet quis voluptatibus,
-                                labore enim
-                                atque temporibus nulla ipsam earum nesciunt porro tenetur exercitationem cum deserunt
-                                eius vitae
-                                repellendus sapiente.</p>
+                                <p>
+                                        Os Beatles fazem sucesso mesmo após 40 anos do seu inicio, sendo assim os conheço desde sempre <br>
+                                        Porém, só fui buscar ouvir eles a fundo em 2021, onde fui atrás de ouvir toda a discográfia. <br>
+                                </p>
                         <h2 class="titulo-blog">Meus albuns favoritos</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta maiores hic repellendus
-                                fugiat porro
-                                assumenda? Minima qui quibusdam maiores repudiandae tenetur quasi, repellat cumque
-                                impedit assumenda
-                                dolore sed illum rerum.</p>
+                        <p>Eu gosto de separar meus albuns favoritos pela fase em que os Beatles estavam na época da gravação. A maior parte dos meus favoritas ficam na segunda fase, onde as músicas eram mais "experimentais"</p>
+                        <p>Na primeira fase deles, os meus favoritos são "Please Please Me" e "A Hard Day's Night". <br> Já na segunda fase, gosto de "Revolver", "Sgt. Pepper's Lonely Hearts Club Band", "White Album", e "Let It Be" </p>
                         <h2 class="titulo-blog">Minhas musicas favoritas</h2>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis ipsum eaque, aperiam earum,
-                                sed, odit
-                                incidunt quod fugit porro non voluptas autem officiis atque aliquam ex doloribus cumque
-                                ducimus numquam.
+                        <p>
+                                Em ordem de lançamento, minhas músicas favoritas são:
+                                        <ul>
+                                                <li>I Saw Her Standing There</li>
+                                                <li>There's a Place</li>
+                                                <li>All My Loving</li>
+                                                <li>Please Mister Postman</li>
+                                                <li>A Hard Day's Night</li>
+                                                <li>Can't Buy Me Love</li>
+                                                <li>When I Get Home</li>
+                                                <li>Rock and Roll Music</li>
+                                                <li>Ticket to Ride</li>
+                                                <li>Act Naturally</li>
+                                                <li>Nowhere Man</li>
+                                                <li>Girl</li>
+                                                <li>Run for Your Life</li>
+                                                <li>I'm Only Sleeping</li>
+                                                <li>And Your Bird Can Sing</li>
+                                                <li>Love You To</li>
+                                                <li>Sgt. Pepper's Lonely Hearts Club Band</li>
+                                                <li>Lucy in the Sky with Diamonds</li>
+                                                <li>Being for the Benefit of Mr. Kite!</li>
+                                                <li>Within You Without You</li>
+                                                <li>I Am the Walrus</li>
+                                                <li>Baby, You're a Rich Man</li>
+                                                <li>Back in the U.S.S.R.</li>
+                                                <li>Don't Pass Me By</li>
+                                                <li>Yer Blues</li>
+                                                <li>Helter Skelter</li>
+                                                <li>Maxwell's Silver Hammer</li>
+                                                <li>Oh! Darling</li>
+                                                <li>Here Comes the Sun</li>
+                                                <li>I've Got a Feeling</li>
+                                                <li>Get Back</li>
+
+                                        </ul>
                         </p>
                         <div class="avisos">
                                 <div id="alerta">
                                 </div>
                                 <!-- <div class="container"> -->
-                                <h1>Forum - discussões</h1>
+                                <h1 id="titulo-forum">FÓRUM - DISCUSSÕES</h1>
                                 <div class="div-form">
                                         <form id="form_postagem" method="post" onsubmit="return publicar()">
                                                 <label>
@@ -692,7 +707,7 @@
                                                                 maxlength="550" rows="5"></textarea>
                                                 </label>
                                                 <br>
-                                                <button>Enviar</button>
+                                                <button class="publicacao-btn-editar">Enviar</button>
                                         </form>
                                 </div>
                                 <div class="div-results">
@@ -711,7 +726,7 @@
         <div class="footer">
                 <div class="container">
                         <h4>Feito por Arthur Moraes 1CCO SPTECH &copy</h4>
-                        <h5><a href="">dados sobre o site</a></h5>
+                        
                 </div>
         </div>
 
@@ -723,7 +738,7 @@
         atualizarFeed();
         let nomeUsuario = sessionStorage.NOME_USUARIO;
 
-        // idNome.innerHTML = nomeUsuario;
+        idNome.innerHTML = nomeUsuario;
 
         function esconderSublista(id) {
                 var sublista = document.getElementById(id);
@@ -735,256 +750,256 @@
         function esconderEditar(div) {
                 div.style.display = div.style.display == 'block' ? 'none' : 'block';
         }
-        // function esconderResposta(div) {
-        //         div.style.display = div.style.display == 'block' ? 'none' : 'block';
-        // }
+// function esconderResposta(div) {
+//         div.style.display = div.style.display == 'block' ? 'none' : 'block';
+// }
 
-        function limparFormulario() {
-                document.getElementById("form_postagem").reset();
+function limparFormulario() {
+        document.getElementById("form_postagem").reset();
+}
+
+function publicar() {
+        var idUsuario = sessionStorage.ID_USUARIO;
+
+        var corpo = {
+                titulo: form_postagem.titulo.value,
+                descricao: form_postagem.descricao.value
         }
 
-        function publicar() {
-                var idUsuario = sessionStorage.ID_USUARIO;
+        fetch(`/avisos/publicar/${idUsuario}`, {
+                method: "post",
+                headers: {
+                        "Content-Type": "application/json"
+                },
+                body: JSON.stringify(corpo)
+        }).then(function (resposta) {
 
-                var corpo = {
-                        titulo: form_postagem.titulo.value,
-                        descricao: form_postagem.descricao.value
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                        window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
+                        window.location = "/login/blog.html";
+                        limparFormulario();
+                } else if (resposta.status == 404) {
+                        window.alert("Deu 404!");
+                } else {
+                        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
                 }
+        }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+        });
 
-                fetch(`/avisos/publicar/${idUsuario}`, {
-                        method: "post",
-                        headers: {
-                                "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(corpo)
-                }).then(function (resposta) {
+        return false;
 
-                        console.log("resposta: ", resposta);
+}
 
-                        if (resposta.ok) {
-                                window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-                                window.location = "/login/blog.html";
-                                limparFormulario();
-                        } else if (resposta.status == 404) {
-                                window.alert("Deu 404!");
-                        } else {
-                                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+function editar(idPost, idTextArea) {
+        fetch(`/avisos/editar/${idPost}`, {
+                method: "PUT",
+                headers: {
+                        "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                        descricao: idTextArea.value
+                })
+        }).then(function (resposta) {
+
+                if (resposta.ok) {
+                        window.alert("Post atualizado com sucesso pelo usuario de email: " + sessionStorage.EMAIL_USUARIO + "!");
+                        window.location = "/login/blog.html"
+                } else if (resposta.status == 404) {
+                        window.alert("Deu 404!");
+                } else {
+                        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                }
+        }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function deletar(idAviso) {
+        console.log("Criar função de apagar post escolhido - ID" + idAviso);
+        fetch(`/avisos/deletar/${idAviso}`, {
+                method: "DELETE",
+                headers: {
+                        "Content-Type": "application/json"
+                }
+        }).then(function (resposta) {
+
+                if (resposta.ok) {
+                        window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                        window.location = "/login/blog.html"
+                } else if (resposta.status == 404) {
+                        window.alert("Deu 404!");
+                } else {
+                        throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                }
+        }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+        });
+}
+// function responder() {
+//         var idUsuario = sessionStorage.ID_USUARIO;
+
+//         var corpo = {
+//                 titulo: form_resposta.titulo_resposta.value,
+//                 descricao: form_resposta.descricao_resposta.value
+//         }
+
+//         fetch(`/avisos/responder/${idUsuario}`, {
+//                 method: "post",
+//                 headers: {
+//                         "Content-Type": "application/json"
+//                 },
+//                 body: JSON.stringify(corpo)
+//         }).then(function (resposta) {
+
+//                 console.log("resposta: ", resposta);
+
+//                 if (resposta.ok) {
+//                         window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
+//                         window.location = "/login/blog.html";
+//                         limparFormulario();
+//                 } else if (resposta.status == 404) {
+//                         window.alert("Deu 404!");
+//                 } else {
+//                         throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+//                 }
+//         }).catch(function (resposta) {
+//                 console.log(`#ERRO: ${resposta}`);
+//         });
+
+//         return false;
+
+// }
+
+function atualizarFeed() {
+        fetch("/avisos/listar").then(function (resposta) {
+                if (resposta.ok) {
+                        if (resposta.status == 204) {
+                                var feed = document.getElementById("feed_container");
+                                var mensagem = document.createElement("span");
+                                mensagem.innerHTML = "Nenhum resultado encontrado."
+                                feed.appendChild(mensagem);
+                                throw "Nenhum resultado encontrado!!";
                         }
-                }).catch(function (resposta) {
-                        console.log(`#ERRO: ${resposta}`);
-                });
 
-                return false;
+                        resposta.json().then(function (resposta) {
+                                console.log("Dados recebidos: ", JSON.stringify(resposta));
 
-        }
+                                var feed = document.getElementById("feed_container");
+                                feed.innerHTML = "";
+                                for (let i = 0; i < resposta.length; i++) {
+                                        var publicacao = resposta[i];
+                                        let autorDaPublicacao = publicacao.nome == sessionStorage.NOME_USUARIO
 
-        function editar(idPost, idTextArea) {
-                fetch(`/avisos/editar/${idPost}`, {
-                        method: "PUT",
-                        headers: {
-                                "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({
-                                descricao: idTextArea.value
-                        })
-                }).then(function (resposta) {
+                                        // criando e manipulando elementos do HTML via JavaScript
+                                        var divPublicacao = document.createElement("div");
+                                        var spanTitulo = document.createElement("span");
+                                        var spanNome = document.createElement("span");
+                                        var divDescricao = document.createElement("div");
+                                        var divButtons = document.createElement("div");
+                                        if (autorDaPublicacao) {
+                                                var btnEditar = document.createElement("button");
+                                                var btnDeletar = document.createElement("button");
+                                                var divEditar = document.createElement("div");
+                                                var labelEdicao = document.createElement("label");
+                                                var textAreaEdicao = document.createElement("textarea");
+                                                var btnEdicao = document.createElement("button");
+                                        }
+                                        // var btnResponder = document.createElement("button");
+                                        // var divResposta = document.createElement("div")
+                                        // var btnEnvResposta = document.createElement("button");
+                                        var editPubli = '';
+                                        // var labelResposta = document.createElement("label");
+                                        // var textAreaResposta = document.createElement("textarea")
 
-                        if (resposta.ok) {
-                                window.alert("Post atualizado com sucesso pelo usuario de email: " + sessionStorage.EMAIL_USUARIO + "!");
-                                window.location = "/login/blog.html"
-                        } else if (resposta.status == 404) {
-                                window.alert("Deu 404!");
-                        } else {
-                                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-                        }
-                }).catch(function (resposta) {
-                        console.log(`#ERRO: ${resposta}`);
-                });
-        }
 
-        function deletar(idAviso) {
-                console.log("Criar função de apagar post escolhido - ID" + idAviso);
-                fetch(`/avisos/deletar/${idAviso}`, {
-                        method: "DELETE",
-                        headers: {
-                                "Content-Type": "application/json"
-                        }
-                }).then(function (resposta) {
 
-                        if (resposta.ok) {
-                                window.alert("Post deletado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                                window.location = "/login/blog.html"
-                        } else if (resposta.status == 404) {
-                                window.alert("Deu 404!");
-                        } else {
-                                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-                        }
-                }).catch(function (resposta) {
-                        console.log(`#ERRO: ${resposta}`);
-                });
-        }
-        // function responder() {
-        //         var idUsuario = sessionStorage.ID_USUARIO;
+                                        spanTitulo.innerHTML = "<b>Título:</b> " + publicacao.titulo;
+                                        spanNome.innerHTML = "<b>Autor: </b> " + publicacao.nome;
+                                        divDescricao.innerHTML = "<b>Comentário: </b>" + publicacao.descricao;
+                                        if (autorDaPublicacao) {
+                                                btnEditar.innerHTML = "Editar";
+                                                btnDeletar.innerHTML = "Deletar";
+                                                btnEdicao.innerHTML = "Enviar";
+                                                labelEdicao.innerHTML = "Edição (máximo de 550 caracteres): <br><br>"
+                                        }
+                                        // labelResposta.innerHTML = "Responder (máximo de 550 caracteres): <br>"
+                                        // btnResponder.innerHTML = "Responder";
+                                        // btnEnvResposta.innerHTML = "Enviar";
 
-        //         var corpo = {
-        //                 titulo: form_resposta.titulo_resposta.value,
-        //                 descricao: form_resposta.descricao_resposta.value
-        //         }
 
-        //         fetch(`/avisos/responder/${idUsuario}`, {
-        //                 method: "post",
-        //                 headers: {
-        //                         "Content-Type": "application/json"
-        //                 },
-        //                 body: JSON.stringify(corpo)
-        //         }).then(function (resposta) {
+                                        divPublicacao.className = "publicacao";
+                                        spanTitulo.id = "inputNumero" + publicacao.idAviso;
+                                        spanNome.className = "publicacao-nome";
+                                        spanTitulo.className = "publicacao-titulo";
+                                        divDescricao.className = "publicacao-descricao";
+                                        divButtons.className = "div-buttons";
 
-        //                 console.log("resposta: ", resposta);
+                                        if (autorDaPublicacao) {
+                                                divEditar.className = "publicacao-editar";
+                                                divEditar.style.display = 'none';
 
-        //                 if (resposta.ok) {
-        //                         window.alert("Post realizado com sucesso pelo usuario de ID: " + idUsuario + "!");
-        //                         window.location = "/login/blog.html";
-        //                         limparFormulario();
-        //                 } else if (resposta.status == 404) {
-        //                         window.alert("Deu 404!");
-        //                 } else {
-        //                         throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-        //                 }
-        //         }).catch(function (resposta) {
-        //                 console.log(`#ERRO: ${resposta}`);
-        //         });
+                                                divEditar.id = "editarPublicacao" + publicacao.idAviso;
 
-        //         return false;
+                                                textAreaEdicao.id = "textarea_descricao" + publicacao.idAviso;
+                                                textAreaEdicao.maxlength = "250";
+                                                textAreaEdicao.rows = "5";
 
-        // }
+                                                btnEditar.className = "publicacao-btn-editar btn-editar"
+                                                btnEditar.id = "btnEditar" + publicacao.idAviso;
+                                                btnEditar.setAttribute("onclick", `esconderEditar(${divEditar.id})`);
 
-        function atualizarFeed() {
-                fetch("/avisos/listar").then(function (resposta) {
-                        if (resposta.ok) {
-                                if (resposta.status == 204) {
-                                        var feed = document.getElementById("feed_container");
-                                        var mensagem = document.createElement("span");
-                                        mensagem.innerHTML = "Nenhum resultado encontrado."
-                                        feed.appendChild(mensagem);
-                                        throw "Nenhum resultado encontrado!!";
+                                                btnDeletar.className = "publicacao-btn-editar btn-excluir"
+                                                btnDeletar.id = "btnDeletar" + publicacao.idAviso;
+                                                btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
+
+                                                btnEdicao.className = "publicacao-btn-editar btn-enviar-edicao";
+                                                btnEdicao.id = "btnEdicao" + publicacao.idAviso;
+                                                btnEdicao.setAttribute("onclick", `editar(${publicacao.idAviso}, ${textAreaEdicao.id})`)
+
+
+                                        }
+                                        // divResposta.className = "publicacao-resposta";
+                                        // divResposta.style.display = "none";
+                                        // divResposta.id = "responderPublicacao" + publicacao.idAviso;
+
+
+                                        // btnResponder.className = "publicacao-btn-editar"
+                                        // btnResponder.id = "btnResponder" + publicacao.idAviso;
+                                        // btnResponder.setAttribute("onclick", `esconderResposta(${divResposta.id})`);
+
+                                        // btnEnvResposta.className = "publicacao-btn-editar"
+                                        // btnEnvResposta.id = "btnResponder" + publicacao.idAviso;
+                                        // btnEnvResposta.setAttribute("onclick", `responder(${publicacao.idAviso})`);
+
+                                        divPublicacao.appendChild(spanNome);
+                                        divPublicacao.appendChild(spanTitulo);
+                                        divPublicacao.appendChild(divDescricao);
+                                        divPublicacao.appendChild(divButtons);
+                                        if (autorDaPublicacao) {
+                                                divPublicacao.appendChild(divEditar);
+                                                divButtons.appendChild(btnEditar);
+                                                divButtons.appendChild(btnDeletar);
+                                                divEditar.appendChild(labelEdicao);
+                                                labelEdicao.appendChild(textAreaEdicao);
+                                                divEditar.appendChild(btnEdicao);
+                                        }
+                                        // divResposta.appendChild(labelResposta);
+                                        // labelResposta.appendChild(textAreaResposta);
+                                        // divResposta.appendChild(btnEnvResposta);
+                                        // divPublicacao.appendChild(divResposta);
+                                        // divButtons.appendChild(btnResponder);
+                                        feed.appendChild(divPublicacao);
                                 }
 
-                                resposta.json().then(function (resposta) {
-                                        console.log("Dados recebidos: ", JSON.stringify(resposta));
-
-                                        var feed = document.getElementById("feed_container");
-                                        feed.innerHTML = "";
-                                        for (let i = 0; i < resposta.length; i++) {
-                                                var publicacao = resposta[i];
-                                                let autorDaPublicacao = publicacao.nome == sessionStorage.NOME_USUARIO
-
-                                                // criando e manipulando elementos do HTML via JavaScript
-                                                var divPublicacao = document.createElement("div");
-                                                var spanTitulo = document.createElement("span");
-                                                var spanNome = document.createElement("span");
-                                                var divDescricao = document.createElement("div");
-                                                var divButtons = document.createElement("div");
-                                                if (autorDaPublicacao) {
-                                                        var btnEditar = document.createElement("button");
-                                                        var btnDeletar = document.createElement("button");
-                                                        var divEditar = document.createElement("div");
-                                                        var labelEdicao = document.createElement("label");
-                                                        var textAreaEdicao = document.createElement("textarea");
-                                                        var btnEdicao = document.createElement("button");
-                                                }
-                                                // var btnResponder = document.createElement("button");
-                                                // var divResposta = document.createElement("div")
-                                                // var btnEnvResposta = document.createElement("button");
-                                                var editPubli = '';
-                                                // var labelResposta = document.createElement("label");
-                                                // var textAreaResposta = document.createElement("textarea")
-
-
-
-                                                spanTitulo.innerHTML = "<b>Título:</b> " + publicacao.titulo;
-                                                spanNome.innerHTML = "<b>Autor: </b> " + publicacao.nome;
-                                                divDescricao.innerHTML = "<b>Descrição: </b>" + publicacao.descricao;
-                                                if (autorDaPublicacao) {
-                                                        btnEditar.innerHTML = "Editar";
-                                                        btnDeletar.innerHTML = "Deletar";
-                                                        btnEdicao.innerHTML = "Enviar";
-                                                        labelEdicao.innerHTML = "Edição (máximo de 550 caracteres): <br>"
-                                                }
-                                                // labelResposta.innerHTML = "Responder (máximo de 550 caracteres): <br>"
-                                                // btnResponder.innerHTML = "Responder";
-                                                // btnEnvResposta.innerHTML = "Enviar";
-
-
-                                                divPublicacao.className = "publicacao";
-                                                spanTitulo.id = "inputNumero" + publicacao.idAviso;
-                                                spanNome.className = "publicacao-nome";
-                                                spanTitulo.className = "publicacao-titulo";
-                                                divDescricao.className = "publicacao-descricao";
-                                                divButtons.className = "div-buttons";
-
-                                                if (autorDaPublicacao) {
-                                                        divEditar.className = "publicacao-editar";
-                                                        divEditar.style.display = 'none';
-
-                                                        divEditar.id = "editarPublicacao" + publicacao.idAviso;
-
-                                                        textAreaEdicao.id = "textarea_descricao" + publicacao.idAviso;
-                                                        textAreaEdicao.maxlength = "250";
-                                                        textAreaEdicao.rows = "5";
-
-                                                        btnEditar.className = "publicacao-btn-editar"
-                                                        btnEditar.id = "btnEditar" + publicacao.idAviso;
-                                                        btnEditar.setAttribute("onclick", `esconderEditar(${divEditar.id})`);
-
-                                                        btnDeletar.className = "publicacao-btn-editar"
-                                                        btnDeletar.id = "btnDeletar" + publicacao.idAviso;
-                                                        btnDeletar.setAttribute("onclick", `deletar(${publicacao.idAviso})`);
-
-                                                        btnEdicao.className = "publicacao-btn-editar";
-                                                        btnEdicao.id = "btnEdicao" + publicacao.idAviso;
-                                                        btnEdicao.setAttribute("onclick", `editar(${publicacao.idAviso}, ${textAreaEdicao.id})`)
-
-
-                                                }
-                                                // divResposta.className = "publicacao-resposta";
-                                                // divResposta.style.display = "none";
-                                                // divResposta.id = "responderPublicacao" + publicacao.idAviso;
-
-
-                                                // btnResponder.className = "publicacao-btn-editar"
-                                                // btnResponder.id = "btnResponder" + publicacao.idAviso;
-                                                // btnResponder.setAttribute("onclick", `esconderResposta(${divResposta.id})`);
-
-                                                // btnEnvResposta.className = "publicacao-btn-editar"
-                                                // btnEnvResposta.id = "btnResponder" + publicacao.idAviso;
-                                                // btnEnvResposta.setAttribute("onclick", `responder(${publicacao.idAviso})`);
-
-                                                divPublicacao.appendChild(spanNome);
-                                                divPublicacao.appendChild(spanTitulo);
-                                                divPublicacao.appendChild(divDescricao);
-                                                divPublicacao.appendChild(divButtons);
-                                                if (autorDaPublicacao) {
-                                                        divPublicacao.appendChild(divEditar);
-                                                        divButtons.appendChild(btnEditar);
-                                                        divButtons.appendChild(btnDeletar);
-                                                        divEditar.appendChild(labelEdicao);
-                                                        labelEdicao.appendChild(textAreaEdicao);
-                                                        divEditar.appendChild(btnEdicao);
-                                                }
-                                                // divResposta.appendChild(labelResposta);
-                                                // labelResposta.appendChild(textAreaResposta);
-                                                // divResposta.appendChild(btnEnvResposta);
-                                                // divPublicacao.appendChild(divResposta);
-                                                // divButtons.appendChild(btnResponder);
-                                                feed.appendChild(divPublicacao);
-                                        }
-
-                                });
-                        } else {
-                                throw ('Houve um erro na API!');
-                        }
-                }).catch(function (resposta) {
-                        console.error(resposta);
-                });
-        }
+                        });
+                } else {
+                        throw ('Houve um erro na API!');
+                }
+        }).catch(function (resposta) {
+                console.error(resposta);
+        });
+}
 </script>

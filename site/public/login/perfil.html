@@ -16,20 +16,10 @@
 
 <body>
 
-                <style id="backgroundBanner">
-                        .banner {
-  width: 100%;
-  margin:auto;
-  height: 380px;
-  background-image: url(../assets/imgs/background-banner.jpeg);
-  background-size:cover;
-  
-}
-                </style>
 
         <div class="header">
                 <div class="container">
-                        <a href="/">
+                        <a href="./index.html">
                                 <img src="../assets/imgs/beatles-logo.jpg" alt="" class="logo">
                         </a>
                         <ul class="menu">
@@ -37,7 +27,7 @@
                                 <a href="./perfil.html">
                                         <li id="idNome">nome usuario</li>
                                 </a>
-                                <a href="../blog.html" id="blog" class="menu-item">
+                                <a href="./blog.html" id="blog" class="menu-item">
                                         <li>Blog</li>
                                 </a>
                                 <a onclick="limparSessao()" id="entrar" class="menu-item">
@@ -54,7 +44,7 @@
                         <h1>Olá <span id="nomePagina">nome usuario</span>!</h1>
                         <h2>Informações do perfil: </h2>
                         <b> Email:</b> <span id="idEmail">email@email.email</span> <br>
-                        <b>Album votado:</b> <span id="idAlbum">Sgt. Pepper's Lonely Hearts Club Band</span>
+                        <b>Album votado:</b> <span id="idAlbum"></span>
                 </span>
         </div>
 
@@ -67,15 +57,20 @@
 
                         <span class="opcao"><input type="radio" name="album" value="1">Please Please Me</span> <br> <br>
                         <span class="opcao"><input type="radio" name="album" value="2">With the Beatles</span> <br> <br>
-                        <span class="opcao"><input type="radio" name="album" value="3">A Hard Day's Night</span> <br> <br>
+                        <span class="opcao"><input type="radio" name="album" value="3">A Hard Day's Night</span> <br>
+                        <br>
                         <span class="opcao"><input type="radio" name="album" value="4">Beatles for Sale</span> <br> <br>
                         <span class="opcao"><input type="radio" name="album" value="5">Help!</span> <br> <br>
                         <span class="opcao"><input type="radio" name="album" value="6">Rubber Soul</span> <br> <br>
                         <span class="opcao"><input type="radio" name="album" value="7">Revolver</span> <br> <br>
-                        <span class="opcao"><input type="radio" name="album" value="8">Sgt. Pepper's Lonely Hearts Club Band</span> <br> <br>
-                        <span class="opcao"><input type="radio" name="album" value="9">Magical Mystery Tour</span> <br> <br>
-                        <span class="opcao"><input type="radio" name="album" value="10">The Beatles (White Album)</span> <br> <br>
-                        <span class="opcao"><input type="radio" name="album" value="11">Yellow Submarine</span> <br> <br>
+                        <span class="opcao"><input type="radio" name="album" value="8">Sgt. Pepper's Lonely Hearts Club
+                                Band</span> <br> <br>
+                        <span class="opcao"><input type="radio" name="album" value="9">Magical Mystery Tour</span> <br>
+                        <br>
+                        <span class="opcao"><input type="radio" name="album" value="10">The Beatles (White Album)</span>
+                        <br> <br>
+                        <span class="opcao"><input type="radio" name="album" value="11">Yellow Submarine</span> <br>
+                        <br>
                         <span class="opcao"><input type="radio" name="album" value="12">Abbey Road</span> <br> <br>
                         <span class="opcao"><input type="radio" name="album" value="13">Let It Be</span> <br><br> <br>
                         <button onclick="votar()" id="btn-votar">Votar</button>
@@ -89,7 +84,7 @@
                         </div>
                 </span>
         </div>
-        
+
 
 
 
@@ -100,7 +95,7 @@
         <div class="footer">
                 <div class="container">
                         <h4>Feito por Arthur Moraes 1CCO SPTECH &copy</h4>
-                        <!-- <h5><a href="">dados sobre o site</a></h5> -->
+                        <!--  -->
                 </div>
         </div>
 
@@ -122,31 +117,6 @@
         verificarDados();
         dadosGrafico()
         function verificarDados() {
-                // fetch(`/enquete/verificar/${idUsuario}`, {
-                //         method: "get",
-                //         headers: {
-                //                 "Content-Type": "application/json"
-                //         }
-                // }).then(function (resposta) {
-
-                //         console.log("resposta: ", resposta);
-
-                //         if (response.ok) {
-                //                 response.json().then(function (resposta) {
-                //                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-
-                //                 });
-
-                //         } else if (resposta.status == 404) {
-                //                 window.alert("Deu 404!");
-                //         } else {
-                //                 throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-                //         }
-                // }).catch(function (resposta) {
-                //         console.log(`#ERRO: ${resposta}`);
-
-                // });
-
                 fetch(`/enquete/verificar/${idUsuario}`).then(function (response) {
                         if (response.ok) {
                                 response.json().then(function (resposta) {
@@ -183,9 +153,9 @@
                                         if (resposta.ok) {
                                                 window.alert("Voto concluido!!!!!!!");
                                                 verificarDados();
-                                                window.location ="perfil.html"
+                                                window.location = "perfil.html"
 
-                                                
+
                                         } else if (resposta.status == 404) {
                                                 window.alert("Deu 404!");
                                         } else {
@@ -203,7 +173,7 @@
                 }
         }
 
-        function dadosGrafico(){
+        function dadosGrafico() {
                 fetch(`/enquete/dados-grafico`).then(function (response) {
                         if (response.ok) {
                                 response.json().then(function (resposta) {
@@ -224,55 +194,100 @@
         setTimeout(() => {
                 const ctx = document.getElementById("myChart");
                 new Chart(ctx, {
-                type: "bar",
-                data: {
-                        labels: ["Please Please Me", "With The Beatles", "A Hard Day's Night", "Beatles for Sale", "Help!", "Rubber Soul", "Revolver", "Sgt. Pepper's Lonely Hearts Club Band", "Magical Mystery Tour", "White Album", "Yellow Submarine", "Abbey Road", "Let It Be"],
-                        datasets: [{
-                                label: "# of Votes",
-                                data: [votos.album1, votos.album2, votos.album3, votos.album4, votos.album5, votos.album6, votos.album7, votos.album8, votos.album9, votos.album10, votos.album11, votos.album12, votos.album13],
-                                borderWidth: 1,
-                                backgroundColor: ["#F44336", "#FF5722", "#FF9800", "#FFC107", "#FFEB3B", "#CDDC39", "#8BC34A", "#4CAF50", "#009688", "#00BCD4", "#03A9F4", "#2196F3", "#3F51B5"]
-                        }]
-                },
-                options: {
-                        animation: {
-                                duration: 1500
-                        }
-                        ,
-                        plugins: {
-                                legend: {
-                                        display: false
-                                }
+                        type: "bar",
+                        data: {
+                                labels: ["Please Please Me", "With The Beatles", "A Hard Day's Night", "Beatles for Sale", "Help!", "Rubber Soul", "Revolver", "Sgt. Pepper's Lonely Hearts Club Band", "Magical Mystery Tour", "White Album", "Yellow Submarine", "Abbey Road", "Let It Be"],
+                                datasets: [{
+                                        label: "# of Votes",
+                                        data: [votos.album1, votos.album2, votos.album3, votos.album4, votos.album5, votos.album6, votos.album7, votos.album8, votos.album9, votos.album10, votos.album11, votos.album12, votos.album13],
+                                        borderWidth: 1,
+                                        backgroundColor: ["#F44336", "#FF5722", "#FF9800", "#FFC107", "#FFEB3B", "#CDDC39", "#8BC34A", "#4CAF50", "#009688", "#00BCD4", "#03A9F4", "#2196F3", "#3F51B5"]
+                                }]
                         },
-
-                        scales: {
-                                y: {
-                                        display: true,
-                                        title: {
-                                                display: true,
-                                                text: 'Votos',
-                                                font: {
-                                                        size: 16
-                                                }
-                                        },
-                                        beginAtZero: true
+                        options: {
+                                animation: {
+                                        duration: 1500
+                                }
+                                ,
+                                plugins: {
+                                        legend: {
+                                                display: false
+                                        }
                                 },
-                                x: {
-                                        display: true,
-                                        title: {
+
+                                scales: {
+                                        y: {
                                                 display: true,
-                                                text: 'Albuns',
-                                                font: {
-                                                        size: 16
+                                                title: {
+                                                        display: true,
+                                                        text: 'Votos',
+                                                        font: {
+                                                                size: 16
+                                                        }
+                                                },
+                                                beginAtZero: true
+                                        },
+                                        x: {
+                                                display: true,
+                                                title: {
+                                                        display: true,
+                                                        text: 'Albuns',
+                                                        font: {
+                                                                size: 16
+                                                        }
                                                 }
                                         }
                                 }
                         }
-                }
-        });
+                });
         }, 100)
-        
-        
+
+        setTimeout(() => {
+                if (select.length == 0) {
+                        idAlbum.innerHTML = "Você ainda não votou"
+                } else {
+                        if (select[0].idAlbum == '1') {
+                        idAlbum.innerHTML = "Please Please Me"
+                        } else if (select[0].idAlbum == '2') {
+                                idAlbum.innerHTML = "With the Beatles"
+                        } else if (select[0].idAlbum == '3') {
+                                idAlbum.innerHTML = "A Hard Day's Night"
+
+                        } else if (select[0].idAlbum == '4') {
+                                idAlbum.innerHTML = "Beatles for Sale"
+
+                        } else if (select[0].idAlbum == '5') {
+                                idAlbum.innerHTML = "Help!"
+
+                        } else if (select[0].idAlbum == '6') {
+                                idAlbum.innerHTML = "Rubber Soul"
+
+                        } else if (select[0].idAlbum == '7') {
+                                idAlbum.innerHTML = "Revolver"
+
+                        } else if (select[0].idAlbum == '8') {
+                                idAlbum.innerHTML = "Sgt. Pepper's Lonely Hearts Club Band"
+
+                        } else if (select[0].idAlbum == '9') {
+                                idAlbum.innerHTML = "Magical Mystery Tour"
+
+                        } else if (select[0].idAlbum == '10') {
+                                idAlbum.innerHTML = "The White Album"
+
+                        } else if (select[0].idAlbum == '11') {
+                                idAlbum.innerHTML = "Yellow Submarine"
+
+                        } else if (select[0].idAlbum == '12') {
+                                idAlbum.innerHTML = "Abbey Road"
+
+                        } else if (select[0].idAlbum == '13') {
+                                idAlbum.innerHTML = "Let It Be"
+
+                        }
+                }
+        }, 100)
+
+
 
 
 </script>
