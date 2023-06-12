@@ -643,8 +643,7 @@
                         <h1>Blog</h1>
                         <h2 class="titulo-blog">Minha historia com beatles</h2>
                                 <p>
-                                        Os Beatles fazem sucesso mesmo após 40 anos do seu inicio, sendo assim os conheço desde sempre <br>
-                                        Porém, só fui buscar ouvir eles a fundo em 2021, onde fui atrás de ouvir toda a discográfia. <br>
+                                        Os Beatles fazem sucesso mesmo após 40 anos do seu início, sendo assim os conheço desde sempre, porém, só fui buscar ouvir eles a fundo em 2021, quando fui atrás de ouvir toda a discografia. A partir disso, fui criando maior apresso por cada uma das músicas. A parte mais divertida dessa experiência, foi reconhecer músicas que eu já tinha escutado antes aleatoriamente, mas não sabia que pertencia aos Beatles.  <br>
                                 </p>
                         <h2 class="titulo-blog">Meus albuns favoritos</h2>
                         <p>Eu gosto de separar meus albuns favoritos pela fase em que os Beatles estavam na época da gravação. A maior parte dos meus favoritas ficam na segunda fase, onde as músicas eram mais "experimentais"</p>
@@ -736,9 +735,6 @@
 
 <script>
         atualizarFeed();
-        let nomeUsuario = sessionStorage.NOME_USUARIO;
-
-        idNome.innerHTML = nomeUsuario;
 
         function esconderSublista(id) {
                 var sublista = document.getElementById(id);
@@ -782,7 +778,10 @@ function publicar() {
                         limparFormulario();
                 } else if (resposta.status == 404) {
                         window.alert("Deu 404!");
-                } else {
+                } else if(resposta.status == 500){
+                        alert('faça o cadastro e login para poder comentar!!')
+                }else 
+                {
                         throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
                 }
         }).catch(function (resposta) {
@@ -889,7 +888,7 @@ function atualizarFeed() {
 
                                 var feed = document.getElementById("feed_container");
                                 feed.innerHTML = "";
-                                for (let i = 0; i < resposta.length; i++) {
+                                for (let i = resposta.length - 1; i >= 0; i--) {
                                         var publicacao = resposta[i];
                                         let autorDaPublicacao = publicacao.nome == sessionStorage.NOME_USUARIO
 

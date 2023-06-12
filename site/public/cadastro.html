@@ -79,7 +79,10 @@
             // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
             // finalizarAguardar();
-            console.log('Preencha todos os campos!!')
+            alert('Preencha todos os campos!!')
+            return false;
+        } else if(senhaVar != confirmacaoSenhaVar){
+            alert('A confirmação tem que ser igual a senha!!')
             return false;
         }
         // else {
